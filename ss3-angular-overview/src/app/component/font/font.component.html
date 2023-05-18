@@ -1,0 +1,31 @@
+<div class="main-cards">
+  <div>
+    <h2>Font size editor 2way-binding</h2>
+
+    <div>
+      <label>Enter font size (px):</label>
+      <input type="range" min="9" max="72" value="18"
+             [(ngModel)]="fontSize">
+    </div>
+
+    <p class="output" [style.font-size.px]="fontSize">
+      This is a paragraph.
+    </p>
+  </div>
+
+  <!------------------------------------->
+
+  <div>
+    <h2>Font size editor event</h2>
+
+    <div>
+      <label>Enter font size (px):</label>
+      <input #element type="range" min="9" max="72" value="18"
+             (change)="changeFontSizeValue(element.value)">
+    </div>
+
+    <p class="output" [style.font-size.px]="fontSize2">
+      This is a paragraph.
+    </p>
+  </div>
+</div>

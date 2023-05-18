@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('angular-color-picker-app app is running!');
+    expect(page.getTitleText()).toEqual('ss3-angular-overview app is running!');
   });
 
   afterEach(async () => {

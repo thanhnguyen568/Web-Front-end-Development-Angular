@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-color-picker-app": {
+    "ss3-angular-overview": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-color-picker-app",
+            "outputPath": "dist/ss3-angular-overview",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-color-picker-app:build"
+            "browserTarget": "ss3-angular-overview:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-color-picker-app:build:production"
+              "browserTarget": "ss3-angular-overview:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-color-picker-app:build"
+            "browserTarget": "ss3-angular-overview:build"
           }
         },
         "test": {
@@ -110,15 +110,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-color-picker-app:serve"
+            "devServerTarget": "ss3-angular-overview:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-color-picker-app:serve:production"
+              "devServerTarget": "ss3-angular-overview:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "angular-color-picker-app"
+    }
+  },
+  "defaultProject": "ss3-angular-overview",
+  "cli": {
+    "analytics": "374a06e6-167a-4231-b78a-e37108e43df5"
+  }
 }
