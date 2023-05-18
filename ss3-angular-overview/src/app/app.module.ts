@@ -6,12 +6,14 @@ import { FontComponent } from './component/font/font.component';
 import {FormsModule} from '@angular/forms';
 import {TableComponent} from './component/table/table.component';
 import { PickerColorComponent } from './component/picker-color/picker-color.component';
+import { CalculatorComponent } from './component/calculator/calculator.component';
 @NgModule({
   declarations: [
     AppComponent,
     FontComponent,
     TableComponent,
     PickerColorComponent,
+    CalculatorComponent,
   ],
   imports: [
     BrowserModule,
