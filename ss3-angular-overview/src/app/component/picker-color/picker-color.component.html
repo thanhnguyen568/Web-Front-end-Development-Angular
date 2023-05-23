@@ -1,8 +1,8 @@
 <h2>Color Picker</h2>
 <div>
   <label>Chọn màu:</label>
-  <!--  <input [value]="background" type="color" (change)="onChange($event.target.value)">-->
-  <input [value]="background" type="color" [(ngModel)]="background">
+    <input [value]="background" type="color" (change)="onChange($event.target.value)">
+  <input type="color" [(ngModel)]="background">
 </div>
 
 <p>Output:</p>
