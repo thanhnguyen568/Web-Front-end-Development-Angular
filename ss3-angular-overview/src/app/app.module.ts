@@ -9,6 +9,8 @@ import { PickerColorComponent } from './component/picker-color/picker-color.comp
 import { CalculatorComponent } from './component/calculator/calculator.component';
 import { HackernewsComponent } from './component/hackernews/hackernews.component';
 import { LikeComponent } from './component/like/like.component';
+import { HeaderComponent } from './component/header/header.component';
+import { FooterComponent } from './component/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +20,8 @@ import { LikeComponent } from './component/like/like.component';
     CalculatorComponent,
     HackernewsComponent,
     LikeComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
