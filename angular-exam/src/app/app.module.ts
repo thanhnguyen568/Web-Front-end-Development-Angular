@@ -7,7 +7,6 @@ import { StudentComponent } from './component/student/student.component';
 import { StudentCreateComponent } from './component/student-create/student-create.component';
 import { StudentDetailComponent } from './component/student-detail/student-detail.component';
 import { ModalDeleteComponent } from './component/modal-delete/modal-delete.component';
-import { ModalAddComponent } from './component/modal-add/modal-add.component';
 import { ChildComponent } from './component/child/child.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { ChildComponent } from './component/child/child.component';
     StudentCreateComponent,
     StudentDetailComponent,
     ModalDeleteComponent,
-    ModalAddComponent,
     ChildComponent
   ],
   imports: [
