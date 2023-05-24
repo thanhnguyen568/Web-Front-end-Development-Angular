@@ -11,6 +11,7 @@ import { HackernewsComponent } from './component/hackernews/hackernews.component
 import { LikeComponent } from './component/like/like.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { CountdownComponent } from './component/countdown/countdown.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { FooterComponent } from './component/footer/footer.component';
     LikeComponent,
     HeaderComponent,
     FooterComponent,
+    CountdownComponent,
   ],
   imports: [
     BrowserModule,

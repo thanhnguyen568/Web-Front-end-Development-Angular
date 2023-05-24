@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#modelAdd">
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modelAdd">
   Add new
 </button>
 
@@ -15,24 +15,16 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Name</label>
-            <input type="text" class="form-control" required>
+            <input type="text" class="form-control" #name required>
           </div>
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label>Address</label>
-            <textarea class="form-control" required></textarea>
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="text" class="form-control" required>
+            <label>Score</label>
+            <input type="number" class="form-control" #score required>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-success" (click)="addStudent(name.value, score.value)">Save</button>
         </div>
       </form>
     </div>

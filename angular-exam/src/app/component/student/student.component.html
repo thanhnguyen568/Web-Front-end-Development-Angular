@@ -1,0 +1,36 @@
+<app-student-create (onCreate)="methodCreateStudent($event)"></app-student-create>
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>score</th>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Child-Vote</th>
+    <th>Parent-Vote</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of students, index as i"
+  (click)="changeStudent(student)">
+    <td>{{i + 1}}</td>
+    <td>{{student.name | titlecase}}</td>
+    <td>{{student.score}}</td>
+    <td>{{date | date: 'dd/MM/yyyy'}}</td>
+    <td>
+      <ng-container *ngIf="student.score > 9 else block">
+        Gioi
+      </ng-container>
+      <ng-template #block>
+        Khac
+      </ng-template>
+    </td>
+    <td>
+      <app-child [vote]="student.vote"></app-child>
+    </td>
+    <td>{{student.vote}}</td>
+  </tr>
+  </tbody>
+</table>
+<app-student-detail [student]="studentDetail"></app-student-detail>
