@@ -5,30 +5,3 @@
     <p class="card-title">Vote: {{student.vote}}</p>
   </div>
 </div>
-
-<div class="modal fade" id="modelAdd" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true"
-     data-bs-keyboard="false" data-bs-backdrop="static">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <form action="">
-        <div class="modal-header">
-          <h4 class="modal-title" id="modelTitleId">Create new entry</h4>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" #name required>
-          </div>
-          <div class="form-group">
-            <label>Score</label>
-            <input type="number" class="form-control" #score required>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-success" (click)="addStudent(name.value, score.value)">Save</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
