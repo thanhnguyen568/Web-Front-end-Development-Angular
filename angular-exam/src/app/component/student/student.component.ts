@@ -33,11 +33,11 @@ export class StudentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeStudent(student: Student) {
+  showStudent(student: Student) {
     this.studentDetail = student;
   }
 
-  methodCreateStudent(student: Student) {
+  createStudent(student: Student) {
     this.students.push({...student, vote: 0});
   }
 }

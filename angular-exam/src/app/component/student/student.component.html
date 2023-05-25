@@ -1,5 +1,7 @@
-<app-student-create (onCreate)="methodCreateStudent($event)"></app-student-create>
-<table class="table">
+<app-student-create (onCreate)="createStudent($event)"></app-student-create>
+<hr>
+
+<table class="table responsive">
   <thead>
   <tr>
     <th>#</th>
@@ -13,7 +15,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let student of students, index as i"
-  (click)="changeStudent(student)">
+  (click)="showStudent(student)">
     <td>{{i + 1}}</td>
     <td>{{student.name | titlecase}}</td>
     <td>{{student.score}}</td>
@@ -33,4 +35,5 @@
   </tr>
   </tbody>
 </table>
+
 <app-student-detail [student]="studentDetail"></app-student-detail>
