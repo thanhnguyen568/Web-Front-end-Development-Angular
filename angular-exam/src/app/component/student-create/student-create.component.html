@@ -7,23 +7,30 @@
      data-bs-keyboard="false" data-bs-backdrop="static">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <form action="">
+      <form action="" [formGroup]="rfStudent">
         <div class="modal-header">
           <h4 class="modal-title" id="modelTitleId">Create new entry</h4>
         </div>
         <div class="modal-body">
           <div class="form-group">
             <label>Name</label>
-            <input type="text" class="form-control" #name required>
+            <input #name type="text" class="form-control" formControlName="name">
+            <p class="text-danger" *ngIf="rfStudent.controls.name?.errors?.required">Tên không được để trống</p>
+            <p class="text-danger" *ngIf="rfStudent.controls.name?.errors?.maxlength">Tên không được >20</p>
           </div>
+
           <div class="form-group">
             <label>Score</label>
-            <input type="number" class="form-control" #score required>
+            <input #score type="number" class="form-control" formControlName="score">
+            <p class="text-danger" *ngIf="rfStudent.controls.score?.errors?.required">Điểm không được để trống</p>
+            <p class="text-danger" *ngIf="rfStudent.controls.score?.errors?.invalidScore">Điểm nằm từ 1 -> 10</p>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-success" (click)="addStudent(name.value, score.value)">Save</button>
+          <button [disabled]="rfStudent.invalid" type="button" class="btn btn-success"
+                  (click)="addStudent(name.value, score.value)">Save
+          </button>
         </div>
       </form>
     </div>

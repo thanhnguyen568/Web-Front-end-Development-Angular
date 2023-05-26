@@ -8,6 +8,7 @@ import { StudentCreateComponent } from './component/student-create/student-creat
 import { StudentDetailComponent } from './component/student-detail/student-detail.component';
 import { ModalDeleteComponent } from './component/modal-delete/modal-delete.component';
 import { ChildComponent } from './component/child/child.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,10 +19,11 @@ import { ChildComponent } from './component/child/child.component';
     ModalDeleteComponent,
     ChildComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
