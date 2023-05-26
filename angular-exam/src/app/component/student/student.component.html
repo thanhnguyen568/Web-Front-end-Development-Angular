@@ -4,6 +4,8 @@
 <table class="table responsive">
   <thead>
   <tr>
+    <th><input type="checkbox" [(ngModel)]="masterSelected" name="masterSelected"
+               (change)="checkUncheckAll()"/></th>
     <th>No.</th>
     <th>Name</th>
     <th>score</th>
@@ -15,7 +17,9 @@
   </thead>
   <tbody>
   <tr *ngFor="let student of students, index as i"
-  (click)="showStudent(student)">
+      (click)="showStudent(student)">
+    <td><input type="checkbox" [(ngModel)]="student.isSelected" name="checkbox" value="{{i+1}}"
+               (change)="isAllSelected()"></td>
     <td>{{i + 1}}</td>
     <td>{{student.name | titlecase}}</td>
     <td>{{student.score}}</td>

@@ -12,20 +12,24 @@ export class StudentComponent implements OnInit {
     {
       name: 'thanh',
       score: 10,
-      vote: 1
+      vote: 1,
+      isSelected: false
     },
     {
       name: 'Lep',
       score: 9,
-      vote: 0
+      vote: 0,
+      isSelected: false
     },
     {
       name: 'Ne',
       score: 8,
-      vote: 1
+      vote: 1,
+      isSelected: false
     },
   ];
   studentDetail: Student = undefined;
+  masterSelected: boolean;
 
   constructor() {
   }
@@ -39,5 +43,19 @@ export class StudentComponent implements OnInit {
 
   createStudent(student: Student) {
     this.students.push({...student, vote: 0});
+  }
+
+  checkUncheckAll() {
+    this.students.forEach(student => {
+      // @ts-ignore
+      student.isSelected = this.masterSelected;
+    });
+  }
+
+  isAllSelected() {
+    this.masterSelected = this.students.every(student =>  {
+      // @ts-ignore
+      return student.isSelected === true;
+    });
   }
 }
