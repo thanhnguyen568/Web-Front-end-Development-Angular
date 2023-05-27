@@ -14,7 +14,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Name<span>*</span></label>
-            <input #name type="text" class="form-control" formControlName="name">
+            <input type="text" class="form-control" #name formControlName="name">
             <p class="text-danger" *ngIf="rfStudent.controls.name?.errors?.required">Tên không được để trống</p>
             <p class="text-danger" *ngIf="rfStudent.controls.name?.errors?.maxlength">Tên không được >20</p>
             <p class="text-danger" *ngIf="rfStudent.controls.name?.errors?.pattern">Tên không chứa ký tự đặc biệt,số</p>
@@ -22,7 +22,7 @@
 
           <div class="form-group">
             <label>Score<span>*</span></label>
-            <input #score type="number" class="form-control" formControlName="score">
+            <input type="number" class="form-control" #score formControlName="score">
             <p class="text-danger" *ngIf="rfStudent.controls.score?.errors?.required">Điểm không được để trống</p>
             <p class="text-danger" *ngIf="rfStudent.controls.score?.errors?.invalidScore">Điểm nằm từ 1 -> 10</p>
           </div>

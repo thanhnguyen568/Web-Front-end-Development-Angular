@@ -1,0 +1,69 @@
+<form action="" [formGroup]="registerForm">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modelTitleId">Create new entry</h4>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label>Email<span>*</span></label>
+      <input type="email" class="form-control" #email formControlName="email">
+      <p class="text-danger" *ngIf="registerForm.controls.email?.errors?.required">Email không được để trống</p>
+    </div>
+
+    <div class="form-group">
+      <label>Password <span>*</span></label>
+      <input type="password" class="form-control" #password formControlName="password">
+      <p class="text-danger" *ngIf="registerForm.controls.password?.errors?.minlength">Password tối thiểu 6 ký tự</p>
+
+    </div>
+
+    <div class="form-group">
+      <label>Confirm Password <span>*</span></label>
+      <input type="password" class="form-control" #confirmPassword formControlName="confirmPassword">
+      <p class="text-danger" *ngIf="registerForm.controls.confirmPassword?.errors?.minlength">Password không được để trống</p>
+
+    </div>
+
+    <div class="form-group">
+      <label>Country<span>*</span></label>
+      <select class="form-control select" #country formControlName="country">
+        <option *ngFor="let country of countries, index as i">
+          {{country.name}}
+        </option>
+      </select>
+      <p class="text-danger" *ngIf="registerForm.controls.country?.errors?.required">Country không được để trống</p>
+
+    </div>
+
+    <div class="form-group">
+      <label>Age<span>*</span></label>
+      <input type="text" class="form-control" #age formControlName="age">
+      <p class="text-danger" *ngIf="registerForm.controls.age?.errors?.min">Age không được dưới 18</p>
+
+    </div>
+
+    <div class="form-group">
+      <label>Gender<span>*</span></label>
+      <br>
+      <input type="radio" #gender formControlName="gender" value="Nam"> <span>Nam</span> |
+      <input type="radio" #gender formControlName="gender" value="Nữ"> <span>Nữ</span> |
+      <input type="radio" #gender formControlName="gender" value="Khác"> <span>Khác</span> |
+      <p class="text-danger" *ngIf="registerForm.controls.gender?.errors?.required">Gender không được để trống</p>
+
+    </div>
+
+    <div class="form-group">
+      <label>Phone<span>*</span></label>
+      <input type="text" class="form-control" #phone formControlName="phone">
+      <p class="text-danger" *ngIf="registerForm.controls.phone?.errors?.pattern">Phone không đúng định dạng</p>
+
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+    <button [disabled]="registerForm.invalid" type="button" class="btn btn-success"
+            (click)="registerUser(email.value, password.value, confirmPassword.value, country.value, age.value,
+            gender.value, phone.value)">Save
+    </button>
+  </div>
+</form>
