@@ -1,5 +1,4 @@
 <app-student-create (onCreate)="createStudent($event)"></app-student-create>
-<hr>
 
 <table class="table responsive">
   <thead>
@@ -25,12 +24,8 @@
     <td>{{student.score}}</td>
     <td>{{date | date: 'dd/MM/yyyy'}}</td>
     <td>
-      <ng-container *ngIf="student.score > 9 else block">
-        Gioi
-      </ng-container>
-      <ng-template #block>
-        Khac
-      </ng-template>
+      <ng-container *ngIf="student.score > 9 else block">Gioi</ng-container>
+      <ng-template #block>Khac</ng-template>
     </td>
     <td>
       <app-child [vote]="student.vote"></app-child>
