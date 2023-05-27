@@ -31,6 +31,9 @@ export class StudentCreateComponent implements OnInit {
     });
   }
 
+  /**
+   * Get input html
+   */
   addStudent(name: string, score: string) {
     this.student = {
       name,
@@ -39,6 +42,9 @@ export class StudentCreateComponent implements OnInit {
     this.onCreate.emit(this.student);
   }
 
+  /**
+   * Custom validation
+   */
   validationScore(control: AbstractControl): ValidationErrors | null {
     const score = +control.value;
     if (score < 0 || score > 10) {

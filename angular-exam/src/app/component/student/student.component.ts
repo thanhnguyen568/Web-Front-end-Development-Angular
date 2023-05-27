@@ -37,14 +37,23 @@ export class StudentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Read
+   */
   showStudent(student: Student) {
     this.studentDetail = student;
   }
 
+  /**
+   * Create
+   */
   createStudent(student: Student) {
     this.students.push({...student, vote: 0});
   }
 
+  /**
+   * UncheckAll
+   */
   checkUncheckAll() {
     this.students.forEach(student => {
       // @ts-ignore
@@ -52,8 +61,11 @@ export class StudentComponent implements OnInit {
     });
   }
 
+  /**
+   * CheckAll
+   */
   isAllSelected() {
-    this.masterSelected = this.students.every(student =>  {
+    this.masterSelected = this.students.every(student => {
       // @ts-ignore
       return student.isSelected === true;
     });
