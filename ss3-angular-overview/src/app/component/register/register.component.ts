@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {User} from '../../model/user';
 import {Country} from '../../model/country';
+import {parseDate} from 'ngx-bootstrap/chronos';
 
 @Component({
   selector: 'app-register',
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       confirmPassword: new FormControl('', [Validators.required]),
       country: new FormControl('', [Validators.required]),
-      age: new FormControl('', [Validators.required, Validators.min(18)]),
+      date: new FormControl('', [Validators.required, this.checkDate]),
       gender: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required, Validators.pattern('(84|0[3|5|7|8|9])+([0-9]{8})')])
       // name: new FormControl('', [Validators.required, Validators.pattern('[^!@#$%^&*()_+=0-9-]*')])
@@ -41,9 +42,9 @@ export class RegisterComponent implements OnInit {
   /**
    * Get to Input
    */
-  registerUser(email: string, password: string, confirmPassword: string, country: string, age: string, gender: string, phone: string) {
+  registerUser(email: string, password: string, confirmPassword: string, country: string, date: Date, gender: string, phone: string) {
     this.user = {
-      email, password, confirmPassword, country, age: +age, gender, phone
+      email, password, confirmPassword, country, date, gender, phone
     };
     alert(this.user.gender);
   }
@@ -51,11 +52,18 @@ export class RegisterComponent implements OnInit {
   /**
    * Custom validation
    */
-  // validConfirmPassword(control: AbstractControl): ValidationErrors | null {
-  //   const confirmPassword = +control.value;
-  //   if (confirmPassword !== this.password) {
-  //     return {invalid: true};
-  //   }
-  //   return null;
-  // }
+  checkDate(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (value !== null && value !== undefined) {
+      const currentDate = new Date();
+      const birthDate = new Date(value);
+      const yearsDiff = currentDate.getFullYear() - birthDate.getFullYear();
+      const monthsDiff = currentDate.getMonth() - birthDate.getMonth();
+      const daysDiff = currentDate.getDate() - birthDate.getDate();
+      if (yearsDiff > 18 || (yearsDiff === 18 && monthsDiff > 0) || (yearsDiff === 18 && monthsDiff === 0 && daysDiff >= 0)) {
+        return null;
+      }
+    }
+    return {invalidAge: true}; // user trên 18 tuổi
+  }
 }
