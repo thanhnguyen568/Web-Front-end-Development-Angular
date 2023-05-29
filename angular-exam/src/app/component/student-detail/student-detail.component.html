@@ -1,7 +1,27 @@
-<div class="card text-left" *ngIf="student">
-  <div class="card-body">
-    <p class="card-title">Name: {{student.name}}</p>
-    <p class="card-title">Score: {{student.score}}</p>
-    <p class="card-title">Vote: {{student.vote}}</p>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#view">
+  View detail
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleId">Detail</h4>
+      </div>
+      <div class="modal-body">
+        <div class="card text-left" *ngIf="student">
+          <div class="card-body">
+            <p class="card-title">Name: {{student.name}}</p>
+            <p class="card-title">Score: {{student.score}}</p>
+            <p class="card-title">Vote: {{student.vote}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>

@@ -9,7 +9,6 @@ import {StudentDetailComponent} from './component/student-detail/student-detail.
 import {ModalDeleteComponent} from './component/modal-delete/modal-delete.component';
 import {ChildComponent} from './component/child/child.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
