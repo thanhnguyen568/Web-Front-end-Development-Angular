@@ -7,4 +7,5 @@ export interface Product {
   productLength?: number;
   productWeight?: number;
   productHeight?: number;
+  isSelected?: false;
 }
