@@ -7,5 +7,19 @@
     <i class="fa fa-bars"></i>
   </a>
 </div>
-<h3>Management System</h3>
-<app-student></app-student>
+
+<div class="container">
+  <h3>Management System</h3>
+  <app-student></app-student>
+</div>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("myNavbar");
+    if (x.className === "navbar") {
+      x.className += " responsive";
+    } else {
+      x.className = "navbar";
+    }
+  }
+</script>

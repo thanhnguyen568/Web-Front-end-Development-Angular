@@ -1,42 +1,72 @@
-<app-student-create (onCreate)="createStudent($event)"></app-student-create>
+<!--Create-->
+<app-student-create (onCreate)="createStudent($event)"></app-student-create> |
+<app-modal-delete></app-modal-delete>
 
-<table class="table responsive">
-  <thead>
-  <tr>
-    <th><input type="checkbox" [(ngModel)]="masterSelected" name="masterSelected"
-               (change)="checkUncheckAll()"/></th>
-    <th>No.</th>
-    <th>Name</th>
-    <th>score</th>
-    <th>Date</th>
-    <th>Type</th>
-    <th>Child-Vote</th>
-    <th>Parent-Vote</th>
-    <th>Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let student of students, index as i" (click)="showStudent(student)">
-    <td><input type="checkbox" [(ngModel)]="student.isSelected" name="checkbox" value="{{i+1}}"
-               (change)="isAllSelected()"></td>
-    <td>{{i + 1}}</td>
-    <td>{{student.name | titlecase}}</td>
-    <td>{{student.score}}</td>
-    <td>{{date | date: 'dd/MM/yyyy'}}</td>
-    <td>
-      <ng-container *ngIf="student.score > 9 else block">Gioi</ng-container>
-      <ng-template #block>Khac</ng-template>
-    </td>
-    <td>
-      <app-child [vote]="student.vote"></app-child>
-    </td>
-    <td>{{student.vote}}</td>
-    <td>
-      <app-student-detail [student]="studentDetail"></app-student-detail>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<!--Table-->
+<div style="overflow-x:auto;">
+  <table class="table responsive overflow-auto">
+    <thead>
+    <tr>
+      <th><input type="checkbox" [(ngModel)]="masterSelected" name="masterSelected"
+                 (change)="checkUncheckAll()"/></th>
+      <th>No.</th>
+      <th>Name</th>
+      <th>score</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Child-Vote</th>
+      <th>Parent-Vote</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of students, index as i">
+      <td><input type="checkbox" name="checkbox" [(ngModel)]="student.isSelected" value="{{i+1}}"
+                 (change)="isAllSelected()"></td>
+      <td>{{i + 1}}</td>
+      <td>{{student.name | titlecase}}</td>
+      <td>{{student.score}}</td>
+      <td>{{date | date: 'dd/MM/yyyy'}}</td>
+      <td>
+        <ng-container *ngIf="student.score > 9 else block">Gioi</ng-container>
+        <ng-template #block>Khac</ng-template>
+      </td>
+      <td>
+        <app-child [vote]="student.vote"></app-child>
+      </td>
+      <td>{{student.vote}}</td>
+      <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#view"
+                (click)="showStudent(student)">
+          View detail
+        </button>
 
-<!--<app-student-detail [student]="studentDetail"></app-student-detail>-->
-<!--(click)="showStudent(student)">-->
+        <button type="button" class="btn btn-info" (click)="deleteStudent(student)">
+          Delete
+        </button>
+
+        <app-student-detail [student]="studentDetail"></app-student-detail>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!--Pagination-->
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+
+

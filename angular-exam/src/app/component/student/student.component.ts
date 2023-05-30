@@ -38,7 +38,7 @@ export class StudentComponent implements OnInit {
   }
 
   /**
-   * Read
+   * View
    */
   showStudent(student: Student) {
     this.studentDetail = student;
@@ -49,6 +49,13 @@ export class StudentComponent implements OnInit {
    */
   createStudent(student: Student) {
     this.students.push({...student, vote: 0});
+  }
+
+  /**
+   * Delete
+   */
+  deleteStudent(student: Student) {
+
   }
 
   /**
