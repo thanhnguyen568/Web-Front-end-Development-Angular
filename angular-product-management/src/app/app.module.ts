@@ -7,12 +7,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductListComponent } from './component/product-list/product-list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProductCreateComponent } from './component/product-create/product-create.component';
+import { ProductDetailComponent } from './component/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
