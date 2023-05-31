@@ -9,10 +9,10 @@ const routes: Routes = [
     path: 'product/list',
     component: ProductListComponent
   },
-  {
-    path: 'product/create',
-    component: ProductCreateComponent
-  }
+  // {
+  //   path: 'product/create',
+  //   component: ProductCreateComponent
+  // }
   ];
 
 @NgModule({

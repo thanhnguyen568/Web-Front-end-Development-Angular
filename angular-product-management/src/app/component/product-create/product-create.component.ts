@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 
 @Component({
-  selector: 'app-product-list-create',
+  selector: 'app-product-create',
   templateUrl: './product-create.component.html',
   styleUrls: ['./product-create.component.css']
 })
@@ -18,7 +18,7 @@ export class ProductCreateComponent implements OnInit {
       productCode: new FormControl('', [
         Validators.required,
         Validators.maxLength(20),
-        Validators.pattern('^[^!@#$%^&*()_+=0-9-]+$')
+        Validators.pattern('^KH-[0-9]{4}$')
       ]),
       productName: new FormControl('', [
         Validators.required,

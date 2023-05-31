@@ -16,57 +16,58 @@
           <div class="form-group">
             <label>productCode<span>*</span></label>
             <input type="text" class="form-control" formControlName="productCode">
-            <p class="text-danger"
-               *ngIf="productForm.controls.productCode?.touched
+            <p class="text-danger" *ngIf="productForm.controls.productCode?.touched
                && productForm.controls.productCode?.errors?.required">productCode không được để trống</p>
+            <p class="text-danger" *ngIf="productForm.controls.productCode?.errors?.pattern">productCode không đúng
+              định dạng</p>
           </div>
 
           <div class="form-group">
-          <label>productName<span>*</span></label>
-          <input type="text" class="form-control" formControlName="productName">
-          <p class="text-danger" *ngIf="productForm.controls.productName?.touched
+            <label>productName<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productName">
+            <p class="text-danger" *ngIf="productForm.controls.productName?.touched
                && productForm.controls.productName?.errors?.required">productName không được để trống</p>
           </div>
 
           <div class="form-group">
-          <label>productPrice<span>*</span></label>
-          <input type="text" class="form-control" formControlName="productPrice">
-          <p class="text-danger" *ngIf="productForm.controls.productPrice?.touched
+            <label>productPrice<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productPrice">
+            <p class="text-danger" *ngIf="productForm.controls.productPrice?.touched
                && productForm.controls.productPrice?.errors?.required">productPrice không được để trống</p>
           </div>
 
           <div class="form-group">
-          <label>productCreateDate<span>*</span></label>
-          <input type="date" class="form-control" formControlName="productCreateDate" disabled>
-          <p class="text-danger" *ngIf="productForm.controls.productCreateDate?.touched
+            <label>productCreateDate<span>*</span></label>
+            <input type="date" class="form-control" formControlName="productCreateDate">
+            <p class="text-danger" *ngIf="productForm.controls.productCreateDate?.touched
                && productForm.controls.productCreateDate?.errors?.required">productCreateDate không được để trống</p>
           </div>
 
           <div class="form-group">
-          <label>productLength<span>*</span></label>
-          <input type="text" class="form-control" formControlName="productLength">
-          <p class="text-danger" *ngIf="productForm.controls.productLength?.touched
+            <label>productLength<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productLength">
+            <p class="text-danger" *ngIf="productForm.controls.productLength?.touched
                && productForm.controls.productLength?.errors?.required">productLength không được để trống</p>
           </div>
 
           <div class="form-group">
-          <label>productWidth<span>*</span></label>
-          <input type="text" class="form-control" formControlName="productWidth">
-          <p class="text-danger" *ngIf="productForm.controls.productWidth?.touched
+            <label>productWidth<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productWidth">
+            <p class="text-danger" *ngIf="productForm.controls.productWidth?.touched
                && productForm.controls.productWidth?.errors?.required">productWidth không được để trống</p>
           </div>
 
           <div class="form-group">
-          <label>productHeight<span>*</span></label>
-          <input type="text" class="form-control" formControlName="productHeight">
-          <p class="text-danger" *ngIf="productForm.controls.productHeight?.touched
+            <label>productHeight<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productHeight">
+            <p class="text-danger" *ngIf="productForm.controls.productHeight?.touched
                && productForm.controls.productHeight?.errors?.required">productHeight không được để trống</p>
           </div>
 
           <div class="form-group">
-          <label>productWeight<span>*</span></label>
-          <input type="text" class="form-control" formControlName="productWeight">
-          <p class="text-danger" *ngIf="productForm.controls.productWeight?.touched
+            <label>productWeight<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productWeight">
+            <p class="text-danger" *ngIf="productForm.controls.productWeight?.touched
                && productForm.controls.productWeight?.errors?.required">productWeight không được để trống</p>
           </div>
 
@@ -74,7 +75,9 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="submit()">Save</button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="submit()"
+                  [disabled]="productForm.invalid">Save
+          </button>
         </div>
       </form>
     </div>

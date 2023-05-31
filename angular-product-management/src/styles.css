@@ -37,6 +37,10 @@ span {
   color: red;
 }
 
+form{
+  overflow: scroll;
+}
+
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {
     display: none;
@@ -47,6 +51,8 @@ span {
     display: block;
   }
 }
+
+
 
 @media screen and (max-width: 600px) {
   .topnav.responsive {
