@@ -22,5 +22,4 @@ export class ProductDetailComponent implements OnInit {
       this.product = this.productService.findById(id);
     });
   }
-
 }

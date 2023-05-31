@@ -8,10 +8,11 @@
      data-bs-keyboard="false" data-bs-backdrop="static">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <form action="" [formGroup]="productForm" (ngSubmit)="submit()">
+      <form action="" [formGroup]="productForm" (ngSubmit)="submitAdd()">
         <div class="modal-header">
           <h4 class="modal-title" id="modelTitleId">Create new entry</h4>
         </div>
+
         <div class="modal-body">
           <div class="form-group">
             <label>productCode<span>*</span></label>
@@ -70,16 +71,16 @@
             <p class="text-danger" *ngIf="productForm.controls.productWeight?.touched
                && productForm.controls.productWeight?.errors?.required">productWeight không được để trống</p>
           </div>
-
         </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" type="submit" class="btn btn-success" data-bs-dismiss="modal"
-                  [disabled]="productForm.invalid">Save
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal" [disabled]="productForm.invalid">
+            Save
           </button>
         </div>
       </form>
     </div>
   </div>
 </div>
+

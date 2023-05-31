@@ -11,10 +11,6 @@ import {Router} from '@angular/router';
 export class ProductCreateComponent implements OnInit {
   productForm: FormGroup;
 
-  /**
-   * @param productService gọi Service
-   * @param router điều hướng redirect
-   */
   constructor(private productService: ProductService,
               private router: Router) {
   }
@@ -52,7 +48,7 @@ export class ProductCreateComponent implements OnInit {
     });
   }
 
-  submit() {
+  submitAdd() {
     const product = this.productForm.value;
     this.productService.saveProduct(product);
     this.productForm.reset();
