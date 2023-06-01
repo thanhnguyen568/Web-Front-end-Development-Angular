@@ -10,10 +10,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let category of categories, index as i;">
+      <tr *ngFor="let dic of dictionaries, index as i;">
         <td>{{i + 1}}</td>
-        <td>{{category.categoryCode}}</td>
-        <td>{{category.categoryName}}</td>
+        <td>{{dic.word}}</td>
+        <td>{{dic.mean}}</td>
       </tr>
       </tbody>
     </table>

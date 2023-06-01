@@ -3,6 +3,8 @@ import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Category} from '../../model/category';
+import {CategoryService} from '../../service/category.service';
 
 @Component({
   selector: 'app-product-update',
@@ -12,10 +14,12 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class ProductUpdateComponent implements OnInit {
   productForm: FormGroup;
   id: string;
+  categories: Category[];
 
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private categoriesService: CategoryService) {
   }
 
   ngOnInit(): void {
@@ -23,6 +27,7 @@ export class ProductUpdateComponent implements OnInit {
       // const id = parseInt(paramMap.get('id'), 10);
       this.id = paramMap.get('id');
       const product = this.getProduct(this.id);
+      this.categories = this.categoriesService.getAll();
 
       this.productForm = new FormGroup({
         productCode: new FormControl(product.productCode, [
@@ -53,6 +58,9 @@ export class ProductUpdateComponent implements OnInit {
         productHeight: new FormControl(product.productHeight, [
           Validators.required,
         ]),
+        category: new FormControl(product.category, [
+          Validators.required,
+        ])
       });
     });
   }
@@ -63,6 +71,8 @@ export class ProductUpdateComponent implements OnInit {
 
   submitUpdate(id: string) {
     const product = this.productForm.value;
+    product.category = this.categoriesService.findById(product.category);
+
     this.productService.updateProduct(id, product);
     this.productForm.reset();
     this.router.navigateByUrl('/product/list');

@@ -13,6 +13,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { CountdownComponent } from './component/countdown/countdown.component';
 import { RegisterComponent } from './component/register/register.component';
+import { DictionaryPageComponent } from './component/dictionary-page/dictionary-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { RegisterComponent } from './component/register/register.component';
     FooterComponent,
     CountdownComponent,
     RegisterComponent,
+    DictionaryPageComponent,
   ],
     imports: [
         BrowserModule,

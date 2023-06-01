@@ -13,7 +13,6 @@ import {Category} from '../../model/category';
 export class ProductCreateComponent implements OnInit {
   productForm: FormGroup;
   categories: Category[];
-  categoryForm: FormGroup;
 
   constructor(private productService: ProductService,
               private router: Router,
@@ -36,7 +35,7 @@ export class ProductCreateComponent implements OnInit {
       productPrice: new FormControl('', [
         Validators.required,
       ]),
-      productCreateDate: new FormControl('', [
+      productCreateDate: new FormControl( new Date(), [
         Validators.required,
       ]),
       productWidth: new FormControl('', [
@@ -51,17 +50,15 @@ export class ProductCreateComponent implements OnInit {
       productHeight: new FormControl('', [
         Validators.required,
       ]),
-      category: new FormControl('', [])
+      category: new FormControl('', [
+        Validators.required,
+      ])
     });
 
     this.categories = this.categoriesService.getAll();
-    // this.categoryForm = new FormGroup({
-    //   categories: new FormControl()
-    // });
   }
 
   submitAdd() {
-    debugger
     const product = this.productForm.value;
     product.category = this.categoriesService.findById(product.category);
 
@@ -69,4 +66,5 @@ export class ProductCreateComponent implements OnInit {
     this.productForm.reset();
     this.router.navigateByUrl('/product/list');
   }
+
 }

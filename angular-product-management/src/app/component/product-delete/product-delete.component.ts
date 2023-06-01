@@ -16,6 +16,9 @@ export class ProductDeleteComponent implements OnInit {
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
+  }
+
+  ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(paramMap => {
       this.id = paramMap.get('id');
       const product = this.getProduct(this.id);
@@ -53,12 +56,7 @@ export class ProductDeleteComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-
-  }
-
   getProduct(id: string) {
-    debugger
     return this.productService.findById(id);
   }
 
