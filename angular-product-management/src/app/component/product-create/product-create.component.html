@@ -20,7 +20,7 @@
             <p class="text-danger" *ngIf="productForm.controls.productCode?.touched
                && productForm.controls.productCode?.errors?.required">productCode không được để trống</p>
             <p class="text-danger" *ngIf="productForm.controls.productCode?.errors?.pattern">productCode không đúng
-              định dạng</p>
+              định dạng P*</p>
           </div>
 
           <div class="form-group">
@@ -28,6 +28,7 @@
             <input type="text" class="form-control" formControlName="productName">
             <p class="text-danger" *ngIf="productForm.controls.productName?.touched
                && productForm.controls.productName?.errors?.required">productName không được để trống</p>
+            <p class="text-danger" *ngIf="productForm.controls.productName?.errors?.pattern">productName không </p>
           </div>
 
           <div class="form-group">
@@ -77,7 +78,7 @@
 <!--            <form action="" [formGroup]="categoryForm">-->
               <select class="form-control" formControlName="category">
                 <option [ngValue]="null" disabled>Choose your category</option>
-                <option *ngFor="let category of categories" [ngValue]="category">
+                <option *ngFor="let category of categories" [value]="category.categoryCode">
                   {{ category.categoryName }}
                 </option>
               </select>

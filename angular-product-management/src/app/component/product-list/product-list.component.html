@@ -34,7 +34,7 @@
         <td>{{product.productWidth | number}}</td>
         <td>{{product.productHeight | number}}</td>
         <td>{{product.productWeight | number}}</td>
-        <td>{{product.categories| json}}</td>
+        <td>{{product.category.categoryName}}</td>
         <td>
           <a class="btn btn-info" role="button" routerLink="/product/detail/{{product.productCode}}">View</a>|
           <a class="btn btn-warning" role="button" routerLink="/product/update/{{product.productCode}}">Update</a>|

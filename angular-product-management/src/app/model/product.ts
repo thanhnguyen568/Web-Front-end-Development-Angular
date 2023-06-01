@@ -1,3 +1,5 @@
+import {Category} from './category';
+
 export interface Product {
   productCode?: string;
   productName?: string;
@@ -7,6 +9,6 @@ export interface Product {
   productLength?: number;
   productWeight?: number;
   productHeight?: number;
-  categories?: string;
+  category?: Category;
   isSelected?: false;
 }

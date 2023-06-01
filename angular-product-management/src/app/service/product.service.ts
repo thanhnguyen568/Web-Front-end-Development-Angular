@@ -13,7 +13,11 @@ export class ProductService {
     productWidth: 20,
     productLength: 5,
     productWeight: 2,
-    productHeight: 30
+    productHeight: 30,
+    category: {
+      categoryCode: '01',
+      categoryName: 'Bánh',
+    }
   },
     {
       productCode: 'P2',
@@ -23,7 +27,11 @@ export class ProductService {
       productWidth: 20,
       productLength: 5,
       productWeight: 2,
-      productHeight: 30
+      productHeight: 30,
+      category: {
+        categoryCode: '02',
+        categoryName: 'Mỳ',
+      }
     }];
 
   constructor() {

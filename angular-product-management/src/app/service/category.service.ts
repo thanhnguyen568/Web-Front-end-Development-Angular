@@ -5,7 +5,7 @@ import {Category} from '../model/category';
   providedIn: 'root'
 })
 export class CategoryService {
-  category: Category[] = [{
+  categories: Category[] = [{
     categoryCode: '01',
     categoryName: 'Bánh'
   }, {
@@ -17,6 +17,10 @@ export class CategoryService {
   }
 
   public getAll() {
-    return this.category;
+    return this.categories;
+  }
+
+  public findById(id: string) {
+    return this.categories.find(category => category.categoryCode === id);
   }
 }

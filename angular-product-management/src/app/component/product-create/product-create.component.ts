@@ -18,18 +18,15 @@ export class ProductCreateComponent implements OnInit {
   constructor(private productService: ProductService,
               private router: Router,
               private categoriesService: CategoryService) {
-    // this.categoryForm = new FormGroup({
-    //   categories: new FormControl(this.categories)
-    // });
+
   }
 
   ngOnInit(): void {
-    this.categories = this.categoriesService.getAll();
     this.productForm = new FormGroup({
       productCode: new FormControl('', [
         Validators.required,
         Validators.maxLength(20),
-        Validators.pattern('^KH-[0-9]{4}$')
+        Validators.pattern('^P[0-9]*$')
       ]),
       productName: new FormControl('', [
         Validators.required,
@@ -53,12 +50,21 @@ export class ProductCreateComponent implements OnInit {
       ]),
       productHeight: new FormControl('', [
         Validators.required,
-      ])
+      ]),
+      category: new FormControl('', [])
     });
+
+    this.categories = this.categoriesService.getAll();
+    // this.categoryForm = new FormGroup({
+    //   categories: new FormControl()
+    // });
   }
 
   submitAdd() {
+    debugger
     const product = this.productForm.value;
+    product.category = this.categoriesService.findById(product.category);
+
     this.productService.saveProduct(product);
     this.productForm.reset();
     this.router.navigateByUrl('/product/list');
