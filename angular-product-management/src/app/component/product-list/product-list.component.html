@@ -17,6 +17,7 @@
         <th>Width</th>
         <th>Height</th>
         <th>Weight</th>
+        <th>Category</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -33,12 +34,22 @@
         <td>{{product.productWidth | number}}</td>
         <td>{{product.productHeight | number}}</td>
         <td>{{product.productWeight | number}}</td>
+        <td>{{product.categories| json}}</td>
         <td>
-          <a class="btn btn-info" role="button" routerLink="/product/detail/{{product.productCode}}">View</a>
-          <a class="btn btn-warning" role="button" routerLink="/product/update/{{product.productCode}}">Update</a>
+          <a class="btn btn-info" role="button" routerLink="/product/detail/{{product.productCode}}">View</a>|
+          <a class="btn btn-warning" role="button" routerLink="/product/update/{{product.productCode}}">Update</a>|
+          <a class="btn btn-danger" role="button" routerLink="/product/delete/{{product.productCode}}">Delete</a>|
         </td>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
+
+<script>
+  var myModalEl = document.getElementById('delete')
+  myModalEl.addEventListener('hidden.bs.modal', function (event) {
+    var id = button.data('id')
+    document.getElementById('deleteLink').attr("href", "/product/delete/" + id)
+  })
+</script>

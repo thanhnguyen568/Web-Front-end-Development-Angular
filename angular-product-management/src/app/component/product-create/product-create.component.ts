@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
+import {CategoryService} from '../../service/category.service';
+import {Category} from '../../model/category';
 
 @Component({
   selector: 'app-product-create',
@@ -10,12 +12,19 @@ import {Router} from '@angular/router';
 })
 export class ProductCreateComponent implements OnInit {
   productForm: FormGroup;
+  categories: Category[];
+  categoryForm: FormGroup;
 
   constructor(private productService: ProductService,
-              private router: Router) {
+              private router: Router,
+              private categoriesService: CategoryService) {
+    // this.categoryForm = new FormGroup({
+    //   categories: new FormControl(this.categories)
+    // });
   }
 
   ngOnInit(): void {
+    this.categories = this.categoriesService.getAll();
     this.productForm = new FormGroup({
       productCode: new FormControl('', [
         Validators.required,
@@ -44,7 +53,7 @@ export class ProductCreateComponent implements OnInit {
       ]),
       productHeight: new FormControl('', [
         Validators.required,
-      ]),
+      ])
     });
   }
 

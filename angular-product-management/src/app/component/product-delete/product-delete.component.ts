@@ -1,26 +1,22 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from '../../model/product';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Product} from '../../model/product';
 
 @Component({
-  selector: 'app-product-update',
-  templateUrl: './product-update.component.html',
-  styleUrls: ['./product-update.component.css']
+  selector: 'app-product-delete',
+  templateUrl: './product-delete.component.html',
+  styleUrls: ['./product-delete.component.css']
 })
-export class ProductUpdateComponent implements OnInit {
+export class ProductDeleteComponent implements OnInit {
   productForm: FormGroup;
   id: string;
 
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
-  }
-
-  ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(paramMap => {
-      // const id = parseInt(paramMap.get('id'), 10);
       this.id = paramMap.get('id');
       const product = this.getProduct(this.id);
 
@@ -57,15 +53,18 @@ export class ProductUpdateComponent implements OnInit {
     });
   }
 
+  ngOnInit(): void {
+
+  }
+
   getProduct(id: string) {
+    debugger
     return this.productService.findById(id);
   }
 
-  submitUpdate(id: string) {
-    const product = this.productForm.value;
-    this.productService.updateProduct(id, product);
-    this.productForm.reset();
+  deleteProduct(id: string) {
+    this.productService.deleteProduct(id);
     this.router.navigateByUrl('/product/list');
+    alert('ok');
   }
-
 }

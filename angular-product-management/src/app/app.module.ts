@@ -9,6 +9,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProductCreateComponent } from './component/product-create/product-create.component';
 import { ProductDetailComponent } from './component/product-detail/product-detail.component';
 import { ProductUpdateComponent } from './component/product-update/product-update.component';
+import { HeaderComponent } from './component/header/header.component';
+import { ProductDeleteComponent } from './component/product-delete/product-delete.component';
+import { CategoryListComponent } from './component/category-list/category-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { ProductUpdateComponent } from './component/product-update/product-updat
     ProductListComponent,
     ProductCreateComponent,
     ProductDetailComponent,
-    ProductUpdateComponent
+    ProductUpdateComponent,
+    HeaderComponent,
+    ProductDeleteComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,
