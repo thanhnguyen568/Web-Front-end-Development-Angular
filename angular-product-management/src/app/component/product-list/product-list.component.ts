@@ -1,10 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Category} from '../../model/category';
-import {CategoryService} from '../../service/category.service';
 
 @Component({
   selector: 'app-product-list',
@@ -16,9 +12,7 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   product: Product;
 
-  constructor(private productService: ProductService,
-              private activatedRoute: ActivatedRoute,
-              private router: Router) {
+  constructor(private productService: ProductService) {
   }
 
   ngOnInit(): void {
@@ -68,4 +62,5 @@ export class ProductListComponent implements OnInit {
     }
     this.productService.update(this.product.productCode, this.product);
   }
+
 }

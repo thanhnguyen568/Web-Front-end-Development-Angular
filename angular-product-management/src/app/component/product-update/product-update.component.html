@@ -1,84 +1,86 @@
-<form action="" [formGroup]="productForm" (ngSubmit)="updateProduct(id)">
-  <div class="modal-header">
-    <h4 class="modal-title" id="modelTitleId">Update entry</h4>
-  </div>
+<div class="container">
+  <form action="" [formGroup]="productForm" (ngSubmit)="updateProduct(id)">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modelTitleId">Update entry</h4>
+    </div>
 
-  <div class="modal-body">
-    <div class="form-group">
-      <label>productCode<span>*</span></label>
-      <input type="text" class="form-control" formControlName="productCode">
-      <p class="text-danger" *ngIf="productForm.controls.productCode?.touched
+    <div class="modal-body">
+      <div class="form-group">
+        <label>productCode<span>*</span></label>
+        <input type="text" class="form-control" formControlName="productCode">
+        <p class="text-danger" *ngIf="productForm.controls.productCode?.touched
                && productForm.controls.productCode?.errors?.required">productCode không được để trống</p>
-      <p class="text-danger" *ngIf="productForm.controls.productCode?.errors?.pattern">productCode không đúng
-        định dạng</p>
-    </div>
+        <p class="text-danger" *ngIf="productForm.controls.productCode?.errors?.pattern">productCode không đúng
+          định dạng</p>
+      </div>
 
-    <div class="form-group">
-      <label>productName<span>*</span></label>
-      <input type="text" class="form-control" formControlName="productName">
-      <p class="text-danger" *ngIf="productForm.controls.productName?.touched
+      <div class="form-group">
+        <label>productName<span>*</span></label>
+        <input type="text" class="form-control" formControlName="productName">
+        <p class="text-danger" *ngIf="productForm.controls.productName?.touched
                && productForm.controls.productName?.errors?.required">productName không được để trống</p>
-    </div>
+      </div>
 
-    <div class="form-group">
-      <label>productPrice<span>*</span></label>
-      <input type="text" class="form-control" formControlName="productPrice">
-      <p class="text-danger" *ngIf="productForm.controls.productPrice?.touched
+      <div class="form-group">
+        <label>productPrice<span>*</span></label>
+        <input type="text" class="form-control" formControlName="productPrice">
+        <p class="text-danger" *ngIf="productForm.controls.productPrice?.touched
                && productForm.controls.productPrice?.errors?.required">productPrice không được để trống</p>
-    </div>
+      </div>
 
-    <div class="form-group">
-      <label>productCreateDate<span>*</span></label>
-      <input type="date" class="form-control" formControlName="productCreateDate">
-      <p class="text-danger" *ngIf="productForm.controls.productCreateDate?.touched
+      <div class="form-group">
+        <label>productCreateDate<span>*</span></label>
+        <input type="date" class="form-control" formControlName="productCreateDate">
+        <p class="text-danger" *ngIf="productForm.controls.productCreateDate?.touched
                && productForm.controls.productCreateDate?.errors?.required">productCreateDate không được để trống</p>
-    </div>
+      </div>
 
-    <div class="form-group">
-      <label>productLength<span>*</span></label>
-      <input type="text" class="form-control" formControlName="productLength">
-      <p class="text-danger" *ngIf="productForm.controls.productLength?.touched
+      <div class="form-group">
+        <label>productLength<span>*</span></label>
+        <input type="text" class="form-control" formControlName="productLength">
+        <p class="text-danger" *ngIf="productForm.controls.productLength?.touched
                && productForm.controls.productLength?.errors?.required">productLength không được để trống</p>
-    </div>
+      </div>
 
-    <div class="form-group">
-      <label>productWidth<span>*</span></label>
-      <input type="text" class="form-control" formControlName="productWidth">
-      <p class="text-danger" *ngIf="productForm.controls.productWidth?.touched
+      <div class="form-group">
+        <label>productWidth<span>*</span></label>
+        <input type="text" class="form-control" formControlName="productWidth">
+        <p class="text-danger" *ngIf="productForm.controls.productWidth?.touched
                && productForm.controls.productWidth?.errors?.required">productWidth không được để trống</p>
-    </div>
+      </div>
 
-    <div class="form-group">
-      <label>productHeight<span>*</span></label>
-      <input type="text" class="form-control" formControlName="productHeight">
-      <p class="text-danger" *ngIf="productForm.controls.productHeight?.touched
+      <div class="form-group">
+        <label>productHeight<span>*</span></label>
+        <input type="text" class="form-control" formControlName="productHeight">
+        <p class="text-danger" *ngIf="productForm.controls.productHeight?.touched
                && productForm.controls.productHeight?.errors?.required">productHeight không được để trống</p>
+      </div>
+
+      <div class="form-group">
+        <label>productWeight<span>*</span></label>
+        <input type="text" class="form-control" formControlName="productWeight">
+        <p class="text-danger" *ngIf="productForm.controls.productWeight?.touched
+               && productForm.controls.productWeight?.errors?.required">productWeight không được để trống</p>
+      </div>
     </div>
 
     <div class="form-group">
-      <label>productWeight<span>*</span></label>
-      <input type="text" class="form-control" formControlName="productWeight">
-      <p class="text-danger" *ngIf="productForm.controls.productWeight?.touched
-               && productForm.controls.productWeight?.errors?.required">productWeight không được để trống</p>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label>category<span>*</span></label>
-    <select class="form-control" formControlName="category">
-      <option [ngValue]="null" disabled>Choose your category</option>
-      <option *ngFor="let category of categories" [value]="category.categoryCode">
-        {{ category.categoryName }}
-      </option>
-    </select>
-    <p class="text-danger" *ngIf="productForm.controls.category?.touched
+      <label>category<span>*</span></label>
+      <select class="form-control" formControlName="category">
+        <option [ngValue]="null" disabled>Choose your category</option>
+        <option *ngFor="let category of categories" [value]="category.categoryCode">
+          {{ category.categoryName }}
+        </option>
+      </select>
+      <p class="text-danger" *ngIf="productForm.controls.category?.touched
                && productForm.controls.category?.errors?.required">category không được để trống</p>
-  </div>
+    </div>
 
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" routerLink="/product/list">Cancel</button>
-    <button type="submit" class="btn btn-success" data-bs-dismiss="modal" [disabled]="productForm.invalid">
-      Save
-    </button>
-  </div>
-</form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" routerLink="/product/list">Cancel</button>
+      <button type="submit" class="btn btn-success" data-bs-dismiss="modal" [disabled]="productForm.invalid">
+        Save
+      </button>
+    </div>
+  </form>
+</div>
