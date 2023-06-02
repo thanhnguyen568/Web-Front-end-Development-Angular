@@ -56,7 +56,7 @@ export class ProductUpdateComponent implements OnInit {
         productHeight: new FormControl(product.productHeight, [
           Validators.required,
         ]),
-        category: new FormControl(product.category, [
+        category: new FormControl(product.category.categoryCode, [
           Validators.required,
         ])
       });

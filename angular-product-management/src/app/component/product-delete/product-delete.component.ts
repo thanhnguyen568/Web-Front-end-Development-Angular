@@ -62,6 +62,5 @@ export class ProductDeleteComponent implements OnInit {
   removeProduct(id: string) {
     this.productService.deleteById(id);
     this.router.navigateByUrl('/product/list');
-    alert('ok');
   }
 }

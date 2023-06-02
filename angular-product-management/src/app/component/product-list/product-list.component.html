@@ -19,6 +19,7 @@
         <th>Weight</th>
         <th>Quantity</th>
         <th>Category</th>
+        <th>Sale</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -38,14 +39,21 @@
         <td>{{product.productQuantity | number}}</td>
         <td>{{product.category.categoryName}}</td>
         <td>
-          <a class="btn btn-info" role="button" routerLink="/product/detail/{{product.productCode}}">View</a>|
-          <a class="btn btn-warning" role="button" routerLink="/product/update/{{product.productCode}}">Update</a>|
-          <a class="btn btn-danger" role="button" routerLink="/product/delete/{{product.productCode}}">Delete</a>|
           <!-- Button trigger modal decrease  -->
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#decrease"
-                  (click)="getProduct(product.productCode)">
-            Sale
+                  (click)="getProduct(product.productCode)">Sale
           </button>
+        </td>
+        <td>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detail"
+                  (click)="getProduct(product.productCode)">Detail
+          </button>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete"
+                  (click)="getProduct(product.productCode)">Delete
+          </button>
+          <a class="btn btn-warning" role="button" routerLink="/product/update/{{product.productCode}}">Update</a>
         </td>
       </tr>
       </tbody>
@@ -53,8 +61,9 @@
   </div>
 </div>
 
-<!-- Modal delete-->
-<div *ngIf="product" class="modal fade" id="decrease" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDecrease" aria-hidden="true">
+<!-- Modal decrease -->
+<div *ngIf="product" class="modal fade" id="decrease" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDecrease"
+     aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -65,36 +74,65 @@
       </div>
       <div class="modal-footer">
         <form action="">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>|
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="removeQuantity()">Confirm</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          |
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="removeQuantity()">Confirm
+          </button>
         </form>
       </div>
     </div>
   </div>
 </div>
 
-<!--&lt;!&ndash; Button trigger modal &ndash;&gt;-->
-<!--<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modelId">-->
-<!--  Launch-->
-<!--</button>-->
+<!-- Modal delete -->
+<div *ngIf="product" class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDelete"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDelete"></h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure delete: {{product.productName}}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        |
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                (click)="removeProduct()">Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<!--&lt;!&ndash; Modal &ndash;&gt;-->
-<!--<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">-->
-<!--  <div class="modal-dialog" role="document">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--        <h4 class="modal-title" id="modelTitleId"></h4>-->
-<!--        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">-->
-<!--          <span aria-hidden="true">&times;</span>-->
-<!--        </button>-->
-<!--      </div>-->
-<!--      <div class="modal-body">-->
-<!--        Body-->
-<!--      </div>-->
-<!--      <div class="modal-footer">-->
-<!--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-<!--        <button type="button" class="btn btn-primary">Save</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<!-- Modal -->
+<div *ngIf="product" class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDetail"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDetail"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="card bg-info" style="width: 100%;">
+          <div class="card-body">
+            <h4 class="card-title">Detail</h4>
+            <div class="form-group">
+              <p>Code: {{product.productCode}}</p>
+              <p>Name: {{product.productName}}</p>
+              <p>Price: {{product.productPrice}}</p>
+              <p>Length: {{product.productLength}}</p>
+              <p>Width: {{product.productWidth}}</p>
+              <p>Height: {{product.productHeight}}</p>
+              <p>Weight: {{product.productWeight}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

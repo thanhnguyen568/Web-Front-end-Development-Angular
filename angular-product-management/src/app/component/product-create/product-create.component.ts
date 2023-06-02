@@ -50,6 +50,9 @@ export class ProductCreateComponent implements OnInit {
       productHeight: new FormControl('', [
         Validators.required,
       ]),
+      productQuantity: new FormControl('', [
+        Validators.required,
+      ]),
       category: new FormControl('', [
         Validators.required,
       ])

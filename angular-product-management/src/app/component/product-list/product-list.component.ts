@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Category} from '../../model/category';
+import {CategoryService} from '../../service/category.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,9 +12,9 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  masterSelected: boolean;
   products: Product[];
   product: Product;
-  masterSelected: boolean;
 
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
@@ -46,13 +49,14 @@ export class ProductListComponent implements OnInit {
     this.products = this.productService.findAll();
   }
 
-  removeProduct(id: string) {
-    this.productService.deleteById(id);
-    this.router.navigateByUrl('/product/list');
-  }
-
   getProduct(productCode: string) {
     this.product = this.productService.findById(productCode);
+  }
+
+  removeProduct() {
+    this.product = this.productService.findById(this.product.productCode);
+    this.productService.deleteById(this.product.productCode);
+    this.products = this.productService.findAll();
   }
 
   removeQuantity() {
