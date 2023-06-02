@@ -13,14 +13,18 @@ import {Category} from '../../model/category';
 export class ProductCreateComponent implements OnInit {
   productForm: FormGroup;
   categories: Category[];
+  cbm: number;
 
   constructor(private productService: ProductService,
-              private router: Router,
-              private categoriesService: CategoryService) {
+              private categoriesService: CategoryService,
+              private router: Router) {
 
   }
 
   ngOnInit(): void {
+    /**
+     * Subscribe property: FormControl; Find all object 2nd
+     */
     this.productForm = new FormGroup({
       productCode: new FormControl('', [
         Validators.required,
@@ -55,19 +59,30 @@ export class ProductCreateComponent implements OnInit {
       ]),
       category: new FormControl('', [
         Validators.required,
-      ])
+      ]),
+      cbm: new FormControl('', [])
     });
     this.categories = this.categoriesService.findAll();
   }
 
+  /**
+   * Submit create new entry
+   */
   createProduct() {
     const product = this.productForm.value;
-    // product.category = this.productForm.controls.category.value;
     product.category = this.categoriesService.findById(product.category);
+    // product.category = this.productForm.controls.category.value;
 
     this.productService.save(product);
     this.productForm.reset();
     this.router.navigateByUrl('/product/list');
   }
 
+  /**
+   * Tow-way binding onchange
+   */
+  onChangeInput() {
+    const product = this.productForm.value;
+    this.cbm = product.productWidth * product.productLength * product.productHeight * product.productQuantity;
+  }
 }

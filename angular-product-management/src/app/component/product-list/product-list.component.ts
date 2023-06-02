@@ -39,10 +39,6 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  findAll() {
-    this.products = this.productService.findAll();
-  }
-
   getProduct(productCode: string) {
     this.product = this.productService.findById(productCode);
   }
@@ -62,5 +58,4 @@ export class ProductListComponent implements OnInit {
     }
     this.productService.update(this.product.productCode, this.product);
   }
-
 }

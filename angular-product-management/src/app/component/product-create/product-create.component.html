@@ -48,21 +48,21 @@
 
           <div class="form-group">
             <label>productLength<span>*</span></label>
-            <input type="text" class="form-control" formControlName="productLength">
+            <input type="text" class="form-control" formControlName="productLength" (change)="onChangeInput()">
             <p class="text-danger" *ngIf="productForm.controls.productLength?.touched
                && productForm.controls.productLength?.errors?.required">productLength không được để trống</p>
           </div>
 
           <div class="form-group">
             <label>productWidth<span>*</span></label>
-            <input type="text" class="form-control" formControlName="productWidth">
+            <input type="text" class="form-control" formControlName="productWidth" (change)="onChangeInput()">
             <p class="text-danger" *ngIf="productForm.controls.productWidth?.touched
                && productForm.controls.productWidth?.errors?.required">productWidth không được để trống</p>
           </div>
 
           <div class="form-group">
             <label>productHeight<span>*</span></label>
-            <input type="text" class="form-control" formControlName="productHeight">
+            <input type="text" class="form-control" formControlName="productHeight" (change)="onChangeInput()">
             <p class="text-danger" *ngIf="productForm.controls.productHeight?.touched
                && productForm.controls.productHeight?.errors?.required">productHeight không được để trống</p>
           </div>
@@ -76,9 +76,14 @@
 
           <div class="form-group">
             <label>productQuantity<span>*</span></label>
-            <input type="text" class="form-control" formControlName="productQuantity">
+            <input type="text" class="form-control" formControlName="productQuantity" (change)="onChangeInput()">
             <p class="text-danger" *ngIf="productForm.controls.productQuantity?.touched
                && productForm.controls.productQuantity?.errors?.required">productQuantity không được để trống</p>
+          </div>
+
+          <div class="form-group">
+            <label>CBM<span>*</span></label>
+            <input type="text" class="form-control" formControlName="cbm" [(ngModel)]="cbm" disabled>
           </div>
 
           <div class="form-group">

@@ -7,10 +7,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductListComponent } from './component/product-list/product-list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProductCreateComponent } from './component/product-create/product-create.component';
-import { ProductDetailComponent } from './component/product-detail/product-detail.component';
 import { ProductUpdateComponent } from './component/product-update/product-update.component';
 import { HeaderComponent } from './component/header/header.component';
-import { ProductDeleteComponent } from './component/product-delete/product-delete.component';
 import { CategoryListComponent } from './component/category-list/category-list.component';
 
 @NgModule({
@@ -18,10 +16,8 @@ import { CategoryListComponent } from './component/category-list/category-list.c
     AppComponent,
     ProductListComponent,
     ProductCreateComponent,
-    ProductDetailComponent,
     ProductUpdateComponent,
     HeaderComponent,
-    ProductDeleteComponent,
     CategoryListComponent
   ],
   imports: [

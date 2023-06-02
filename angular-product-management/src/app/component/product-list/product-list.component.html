@@ -1,11 +1,10 @@
 <div class="container">
-  <h3>Product\List</h3>
   <app-product-create></app-product-create>
 
   <div class='table-responsive '>
     <table class='table table-hover'>
       <thead>
-      <tr>
+      <tr class="bg-light">
         <th><input type="checkbox" [(ngModel)]="masterSelected" name="masterSelected"
                    (change)="checkUncheckAll()"/></th>
         <th>No.</th>
@@ -45,11 +44,11 @@
           </button>
         </td>
         <td>
-          <!-- Button trigger modal -->
+          <!-- Button trigger modal detail -->
           <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detail"
                   (click)="getProduct(product.productCode)">Detail
           </button>
-          <!-- Button trigger modal -->
+          <!-- Button trigger modal delete -->
           <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete"
                   (click)="getProduct(product.productCode)">Delete
           </button>

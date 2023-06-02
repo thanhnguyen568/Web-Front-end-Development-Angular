@@ -12,8 +12,9 @@ import {CategoryService} from '../../service/category.service';
 })
 export class ProductUpdateComponent implements OnInit {
   productForm: FormGroup;
-  id: string;
   categories: Category[];
+  id: string;
+
 
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
@@ -22,11 +23,16 @@ export class ProductUpdateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    /**
+     * get paramMap by id on routerLink; parseInt(paramMap.get('id'), 10);
+     */
     this.activatedRoute.paramMap.subscribe(paramMap => {
-      // const id = parseInt(paramMap.get('id'), 10);
       this.id = paramMap.get('id');
       const product = this.getProduct(this.id);
 
+      /**
+       * Subscribe property: FormControl; Find all object 2nd
+       */
       this.productForm = new FormGroup({
         productCode: new FormControl(product.productCode, [
           Validators.required,
@@ -64,10 +70,16 @@ export class ProductUpdateComponent implements OnInit {
     });
   }
 
+  /**
+   * Get object by id
+   */
   getProduct(id: string) {
     return this.productService.findById(id);
   }
 
+  /**
+   * Find object 2nd, update object by id
+   */
   updateProduct(id: string) {
     const product = this.productForm.value;
     product.category = this.categoriesService.findById(product.category);
