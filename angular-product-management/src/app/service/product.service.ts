@@ -15,6 +15,7 @@ export class ProductService {
       productLength: 5,
       productWeight: 2,
       productHeight: 30,
+      productQuantity: 100,
       category: {
         categoryCode: '01',
         categoryName: 'Bánh',
@@ -29,6 +30,7 @@ export class ProductService {
       productLength: 5,
       productWeight: 2,
       productHeight: 30,
+      productQuantity: 100,
       category: {
         categoryCode: '02',
         categoryName: 'Mỳ',
@@ -43,6 +45,7 @@ export class ProductService {
       productLength: 5,
       productWeight: 5,
       productHeight: 30,
+      productQuantity: 100,
       category: {
         categoryCode: '02',
         categoryName: 'Mỳ',
@@ -52,11 +55,11 @@ export class ProductService {
   constructor() {
   }
 
-  public getAll() {
+  public findAll() {
     return this.products;
   }
 
-  public saveProduct(product) {
+  public save(product) {
     this.products.push(product);
   }
 
@@ -64,7 +67,7 @@ export class ProductService {
     return this.products.find(product => product.productCode === id);
   }
 
-  public updateProduct(id: string, product: Product) {
+  public update(id: string, product: Product) {
     for (let i = 0; i < this.products.length; i++) {
       if (this.products[i].productCode === id) {
         this.products[i] = product;
@@ -72,7 +75,7 @@ export class ProductService {
     }
   }
 
-  public deleteProduct(id: string) {
+  public deleteById(id: string) {
     this.products = this.products.filter(product => {
       return product.productCode !== id;
     });

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -9,17 +10,16 @@ import {ProductService} from '../../service/product.service';
 })
 export class ProductListComponent implements OnInit {
   products: Product[];
+  product: Product;
   masterSelected: boolean;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
-    this.products = this.productService.getAll();
-  }
-
-  getProducts() {
-    this.products = this.productService.getAll();
+    this.products = this.productService.findAll();
   }
 
   /**
@@ -40,5 +40,28 @@ export class ProductListComponent implements OnInit {
       // @ts-ignore
       return product.isSelected === true;
     });
+  }
+
+  findAll() {
+    this.products = this.productService.findAll();
+  }
+
+  removeProduct(id: string) {
+    this.productService.deleteById(id);
+    this.router.navigateByUrl('/product/list');
+  }
+
+  getProduct(productCode: string) {
+    this.product = this.productService.findById(productCode);
+  }
+
+  removeQuantity() {
+    this.product = this.productService.findById(this.product.productCode);
+    if (this.product.productQuantity <= 0) {
+      alert('sold out');
+    } else {
+      this.product.productQuantity = this.product.productQuantity - 1;
+    }
+    this.productService.update(this.product.productCode, this.product);
   }
 }

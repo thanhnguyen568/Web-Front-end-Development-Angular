@@ -16,7 +16,7 @@ export class CategoryService {
   constructor() {
   }
 
-  public getAll() {
+  public findAll() {
     return this.categories;
   }
 

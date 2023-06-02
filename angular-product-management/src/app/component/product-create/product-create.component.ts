@@ -35,7 +35,7 @@ export class ProductCreateComponent implements OnInit {
       productPrice: new FormControl('', [
         Validators.required,
       ]),
-      productCreateDate: new FormControl( new Date(), [
+      productCreateDate: new FormControl('', [
         Validators.required,
       ]),
       productWidth: new FormControl('', [
@@ -54,15 +54,15 @@ export class ProductCreateComponent implements OnInit {
         Validators.required,
       ])
     });
-
-    this.categories = this.categoriesService.getAll();
+    this.categories = this.categoriesService.findAll();
   }
 
-  submitAdd() {
+  createProduct() {
     const product = this.productForm.value;
+    // product.category = this.productForm.controls.category.value;
     product.category = this.categoriesService.findById(product.category);
 
-    this.productService.saveProduct(product);
+    this.productService.save(product);
     this.productForm.reset();
     this.router.navigateByUrl('/product/list');
   }

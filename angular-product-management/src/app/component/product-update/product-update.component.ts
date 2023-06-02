@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -27,7 +26,6 @@ export class ProductUpdateComponent implements OnInit {
       // const id = parseInt(paramMap.get('id'), 10);
       this.id = paramMap.get('id');
       const product = this.getProduct(this.id);
-      this.categories = this.categoriesService.getAll();
 
       this.productForm = new FormGroup({
         productCode: new FormControl(product.productCode, [
@@ -62,6 +60,7 @@ export class ProductUpdateComponent implements OnInit {
           Validators.required,
         ])
       });
+      this.categories = this.categoriesService.findAll();
     });
   }
 
@@ -69,11 +68,11 @@ export class ProductUpdateComponent implements OnInit {
     return this.productService.findById(id);
   }
 
-  submitUpdate(id: string) {
+  updateProduct(id: string) {
     const product = this.productForm.value;
     product.category = this.categoriesService.findById(product.category);
 
-    this.productService.updateProduct(id, product);
+    this.productService.update(id, product);
     this.productForm.reset();
     this.router.navigateByUrl('/product/list');
   }

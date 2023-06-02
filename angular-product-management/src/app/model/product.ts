@@ -9,6 +9,7 @@ export interface Product {
   productLength?: number;
   productWeight?: number;
   productHeight?: number;
+  productQuantity?: number;
   category?: Category;
   isSelected?: false;
 }
