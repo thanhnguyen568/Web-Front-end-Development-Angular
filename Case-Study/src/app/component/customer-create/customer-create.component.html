@@ -1,0 +1,93 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modelAdd">
+  Create new
+</button>
+
+<!-- Add New Modal -->
+<div class="modal fade overflow-scroll" id="modelAdd" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true"
+     data-bs-keyboard="false" data-bs-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <form action="" [formGroup]="customerForm" (ngSubmit)="createCustomer()">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modelTitleId">Create new entry</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label>customerId<span>*</span></label>
+            <input type="text" class="form-control" formControlName="customerId">
+            <p class="text-danger" *ngIf="customerForm.controls.customerId?.touched
+               && customerForm.controls.customerId?.errors?.required">customerId không được để trống</p>
+            <p class="text-danger" *ngIf="customerForm.controls.productCode?.errors?.pattern">productCode không đúng
+              định dạng P*</p>
+          </div>
+
+          <div class="form-group">
+            <label>customerName<span>*</span></label>
+            <input type="text" class="form-control" formControlName="customerName">
+            <p class="text-danger" *ngIf="customerForm.controls.customerName?.touched
+               && customerForm.controls.customerName?.errors?.required">customerName không được để trống</p>
+            <p class="text-danger" *ngIf="customerForm.controls.customerName?.errors?.pattern">customerName không nhập ký
+              tự đặt biệt và số</p>
+          </div>
+
+          <div class="form-group">
+            <label>customerDateOfBirth<span>*</span></label>
+            <input type="date" class="form-control" formControlName="customerDateOfBirth">
+            <p class="text-danger" *ngIf="customerForm.controls.customerDateOfBirth?.touched
+               && customerForm.controls.customerDateOfBirth?.errors?.required">customerDateOfBirth không được để trống</p>
+          </div>
+
+          <div class="form-group">
+            <label>customerIdCard<span>*</span></label>
+            <input type="number" class="form-control" formControlName="customerIdCard">
+            <p class="text-danger" *ngIf="customerForm.controls.customerIdCard?.touched
+               && customerForm.controls.customerIdCard?.errors?.required">customerIdCard không được để trống</p>
+          </div>
+
+          <div class="form-group">
+            <label>customerPhone<span>*</span></label>
+            <input type="text" class="form-control" formControlName="customerPhone">
+            <p class="text-danger" *ngIf="customerForm.controls.customerPhone?.touched
+               && customerForm.controls.customerPhone?.errors?.required">customerPhone không được để trống</p>
+          </div>
+
+          <div class="form-group">
+            <label>customerEmail<span>*</span></label>
+            <input type="text" class="form-control" formControlName="customerEmail">
+            <p class="text-danger" *ngIf="customerForm.controls.customerEmail?.touched
+               && customerForm.controls.customerEmail?.errors?.required">customerEmail không được để trống</p>
+          </div>
+
+          <div class="form-group">
+            <label>customerAddress<span>*</span></label>
+            <input type="text" class="form-control" formControlName="customerAddress">
+            <p class="text-danger" *ngIf="customerForm.controls.customerAddress?.touched
+               && customerForm.controls.customerAddress?.errors?.required">customerAddress không được để trống</p>
+          </div>
+
+          <div class="form-group">
+            <label>customerType<span>*</span></label>
+            <select class="form-control" formControlName="customerType">
+              <option [ngValue]="null" disabled>Choose your customerType</option>
+              <option *ngFor="let type of types" [value]="type.typeId">
+                {{type.typeName}}
+              </option>
+            </select>
+            <p class="text-danger" *ngIf="customerForm.controls.customerType?.touched
+               && customerForm.controls.customerType?.errors?.required">customerType không được để trống</p>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal" [disabled]="customerForm.invalid">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

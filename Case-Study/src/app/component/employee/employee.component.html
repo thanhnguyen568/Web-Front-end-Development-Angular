@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class='table-responsive '>
+    <table class='table table-hover'>
+      <thead>
+      <tr class="bg-light">
+        <th><input type="checkbox"/></th>
+        <th>No.</th>
+        <th>employeeId</th>
+        <th>employeeName</th>
+        <th>employeeDateOfBirth</th>
+        <th>employeeIdCard</th>
+        <th>employeePhone</th>
+        <th>employeeEmail</th>
+        <th>employeeAddress</th>
+        <th>employeeSalary</th>
+        <th>employeeDegree</th>
+        <th>employeePosition</th>
+        <th>employeeDepart</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let employee of employees, index as i;">
+        <td><input type="checkbox" name="checkbox" value="{{employee.employeeId}}"></td>
+        <td>{{i + 1}}</td>
+        <td>{{employee.employeeId}}</td>
+        <td>{{employee.employeeName}}</td>
+        <td>{{employee.employeeDateOfBirth | date: 'dd/MM/yyyy'}}</td>
+        <td>{{employee.employeeIdCard}}</td>
+        <td>{{employee.employeePhone}}</td>
+        <td>{{employee.employeeEmail}}</td>
+        <td>{{employee.employeeAddress}}</td>
+        <td>{{employee.employeeSalary}}</td>
+        <td>{{employee.employeeDegree.degreeName}}</td>
+        <td>{{employee.employeePosition.positionName}}</td>
+        <td>{{employee.employeeDepart.departName}}</td>
+        <td>
+          <!-- Button trigger modal delete -->
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete"
+                  (click)="getEmployee(employee.employeeId)">Delete
+          </button>
+          <a class="btn btn-warning" role="button" routerLink="/employee/update/{{employee.employeeId}}">Update</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal delete -->
+<div *ngIf="employee" class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDelete"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDelete"></h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure delete: {{employee.employeeName}}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        |
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                (click)="removeEmployee()">Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
