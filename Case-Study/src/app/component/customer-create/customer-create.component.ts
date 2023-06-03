@@ -3,7 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {CustomerService} from '../../service/customer.service';
 import {Router} from '@angular/router';
 import {TypeService} from '../../service/type.service';
-import {Type} from '../../model/type';
+import {CustomerType} from '../../model/customer-type';
 
 @Component({
   selector: 'app-customer-create',
@@ -12,7 +12,7 @@ import {Type} from '../../model/type';
 })
 export class CustomerCreateComponent implements OnInit {
   customerForm: FormGroup;
-  types: Type[];
+  types: CustomerType[];
 
   constructor(private customerService: CustomerService,
               private typeService: TypeService,

@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {Type} from '../model/type';
+import {CustomerType} from '../model/customer-type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TypeService {
-  types: Type[] = [{
+  types: CustomerType[] = [{
     typeId: 1,
     typeName: 'Member',
   }, {
