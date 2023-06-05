@@ -1,1 +1,122 @@
-<p>product works!</p>
+<div class="container">
+  <app-product-create></app-product-create>
+
+  <div class='table-responsive'>
+    <table class='table table-hover'>
+      <thead>
+      <tr class="bg-light">
+        <th>No.</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>CreateDate</th>
+        <th>Category</th>
+        <th>Action</th>
+        <th>Sale</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products, index as i;">
+        <td>{{product.id}}</td>
+        <td>{{product.productCode}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.productPrice | currency:'$'}}</td>
+        <td>{{product.productQuantity | number}}</td>
+        <td>{{product.productCreateDate | date: 'dd/MM/yyyy'}}</td>
+        <td>{{product.category.categoryName}}</td>
+        <td>
+          <!-- Button trigger modal delete -->
+          <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#delete"
+                  (click)="getProduct(product.id)">Delete
+          </button>
+          <!-- Button trigger modal detail -->
+          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detail"
+                  (click)="getProduct(product.id)">Detail
+          </button>
+        </td>
+        <td>
+          <!-- Button trigger modal decrease  -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#decrease"
+                  (click)="getProduct(product.id)">Sale
+          </button>
+        </td>
+<!--        <td>-->
+<!--          <a class="btn btn-warning" role="button" routerLink="/product/update/{{product.productCode}}">Update</a>-->
+<!--        </td>-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal delete -->
+<div *ngIf="product" class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDelete"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDelete"></h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure delete: {{product.productName}}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary me-1" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                (click)="removeProduct()">Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal decrease -->
+<div *ngIf="product" class="modal fade" id="decrease" tabindex="-1" role="dialog" aria-labelledby="modelTitleIddecrease"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIddecrease"></h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure sale: {{product.productName}}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary me-1" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                (click)="removeQuantity()">Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal detail -->
+<div *ngIf="product" class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdDetail"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdDetail"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="card bg-light" style="width: 100%;">
+          <div class="card-body">
+            <h4 class="card-title">Detail</h4>
+            <div class="form-group">
+              <p>Code: {{product.productCode}}</p>
+              <p>Name: {{product.productName}}</p>
+              <p>Price: {{product.productPrice}}</p>
+              <p>Quantity: {{product.productQuantity}}</p>
+              <p>CreateDate: {{product.productCreateDate}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
