@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
 import {CategoryService} from '../../service/category.service';
@@ -33,34 +33,19 @@ export class ProductCreateComponent implements OnInit {
       ]),
       productName: new FormControl('', [
         Validators.required,
-        Validators.maxLength(20),
         Validators.pattern('^[^!@#$%^&*()_+=0-9-]+$')
       ]),
-      productPrice: new FormControl('', [
-        Validators.required,
-      ]),
-      productCreateDate: new FormControl('', [
-        Validators.required,
-      ]),
-      productWidth: new FormControl('', [
-        Validators.required,
-      ]),
-      productLength: new FormControl('', [
-        Validators.required,
-      ]),
-      productWeight: new FormControl('', [
-        Validators.required,
-      ]),
-      productHeight: new FormControl('', [
-        Validators.required,
-      ]),
-      productQuantity: new FormControl('', [
-        Validators.required,
-      ]),
+      productPrice: new FormControl('', []),
+      productCreateDate: new FormControl('', [this.checkDate]),
+      productWidth: new FormControl('', []),
+      productLength: new FormControl('', []),
+      productWeight: new FormControl('', []),
+      productHeight: new FormControl('', []),
+      productQuantity: new FormControl('', []),
       category: new FormControl('', [
         Validators.required,
       ]),
-      cbm: new FormControl('', [])
+      cbm: new FormControl()
     });
     this.categories = this.categoriesService.findAll();
   }
@@ -69,9 +54,9 @@ export class ProductCreateComponent implements OnInit {
    * Submit create new entry
    */
   createProduct() {
+    // product.category = this.productForm.controls.category.value;
     const product = this.productForm.value;
     product.category = this.categoriesService.findById(product.category);
-    // product.category = this.productForm.controls.category.value;
 
     this.productService.save(product);
     this.productForm.reset();
@@ -85,4 +70,42 @@ export class ProductCreateComponent implements OnInit {
     const product = this.productForm.value;
     this.cbm = product.productWidth * product.productLength * product.productHeight * product.productQuantity;
   }
+
+  /**
+   * Custom validation
+   */
+  checkDate(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (value !== null && value !== undefined) {
+      const currentDate = new Date();
+      const birthDate = new Date(value);
+      const yearsDiff = currentDate.getFullYear() - birthDate.getFullYear();
+      const monthsDiff = currentDate.getMonth() - birthDate.getMonth();
+      const daysDiff = currentDate.getDate() - birthDate.getDate();
+      if (yearsDiff > 18 || (yearsDiff === 18 && monthsDiff > 0) || (yearsDiff === 18 && monthsDiff === 0 && daysDiff >= 0)) {
+        return null;
+      }
+    }
+    return {invalidAge: true}; // user trên 18 tuổi
+  }
+
+  // export const checkPrice: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  //   const priceTicket = control.get("price").value;
+  //
+  //   if (priceTicket <= 0 && priceTicket != null) {
+  //     return {"checkPrice": true};
+  //   } else {
+  //     return null;
+  //   }
+  // }
+
+  // export const checkDayFrom: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  //   const dayFrom = new Date(control.get('dayFrom').value)
+  //   const dayNow = new Date();
+  //   if (dayFrom < dayNow) {
+  //     return {"checkDayFrom": true};
+  //   } else {
+  //     return null;
+  //   }
+  // }
 }

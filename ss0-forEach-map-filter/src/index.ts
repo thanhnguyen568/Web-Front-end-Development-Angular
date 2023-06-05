@@ -13,7 +13,7 @@ arr.forEach(function (value) {
 let newArr = arr.map((value) => value + 2);
 console.log(newArr);
 
-arr.map((value) => value + 2).forEach(value => console.log(value));
+arr.map(value => value + 2).forEach(value => console.log(value));
 
 
 /**

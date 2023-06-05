@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Category} from '../../model/category';
 import {CategoryService} from '../../service/category.service';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-product-update',
@@ -36,13 +37,10 @@ export class ProductUpdateComponent implements OnInit {
       this.productForm = new FormGroup({
         productCode: new FormControl(product.productCode, [
           Validators.required,
-          Validators.maxLength(20),
           Validators.pattern('^P[0-9]*$')
         ]),
         productName: new FormControl(product.productName, [
           Validators.required,
-          Validators.maxLength(20),
-          Validators.pattern('^[^!@#$%^&*()_+=0-9-]+$')
         ]),
         productPrice: new FormControl(product.productPrice, [
           Validators.required,
