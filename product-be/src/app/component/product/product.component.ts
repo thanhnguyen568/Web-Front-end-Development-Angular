@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-product',
@@ -11,6 +12,7 @@ import {Router} from '@angular/router';
 export class ProductComponent implements OnInit {
   products: Product[];
   product: Product;
+  productForm: FormGroup;
 
   constructor(private productService: ProductService,
               private router: Router) {
@@ -50,4 +52,5 @@ export class ProductComponent implements OnInit {
       this.getAllProduct();
     });
   }
+
 }

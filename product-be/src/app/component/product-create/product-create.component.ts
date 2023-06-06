@@ -36,7 +36,6 @@ export class ProductCreateComponent implements OnInit {
       ]),
       productCreateDate: new FormControl('', []),
       productPrice: new FormControl('', []),
-
       productQuantity: new FormControl('', []),
       category: new FormControl('', []),
     });

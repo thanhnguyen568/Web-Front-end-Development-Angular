@@ -2,51 +2,54 @@
   <app-product-create></app-product-create>
 
   <div class='table-responsive'>
-    <table class='table table-hover'>
-      <thead>
-      <tr class="bg-light">
-        <th>No.</th>
-        <th>Code</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>CreateDate</th>
-        <th>Category</th>
-        <th>Action</th>
-        <th>Sale</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let product of products, index as i;">
-        <td>{{product.id}}</td>
-        <td>{{product.productCode}}</td>
-        <td>{{product.productName}}</td>
-        <td>{{product.productPrice | currency:'$'}}</td>
-        <td>{{product.productQuantity | number}}</td>
-        <td>{{product.productCreateDate | date: 'dd/MM/yyyy'}}</td>
-        <td>{{product.category.categoryName}}</td>
-        <td>
-          <!-- Button trigger modal delete -->
-          <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#delete"
-                  (click)="getProduct(product.id)">Delete
-          </button>
-          <!-- Button trigger modal detail -->
-          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detail"
-                  (click)="getProduct(product.id)">Detail
-          </button>
-        </td>
-        <td>
-          <!-- Button trigger modal decrease  -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#decrease"
-                  (click)="getProduct(product.id)">Sale
-          </button>
-        </td>
-<!--        <td>-->
-<!--          <a class="btn btn-warning" role="button" routerLink="/product/update/{{product.productCode}}">Update</a>-->
-<!--        </td>-->
-      </tr>
-      </tbody>
-    </table>
+    <div class="card mt-2">
+      <div class="card-body">
+        <table class='table table-hover'>
+          <thead>
+          <tr class="bg-light">
+            <th>No.</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>CreateDate</th>
+            <th>Category</th>
+            <th>Action</th>
+            <th>Sale</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let product of products, index as i;">
+            <td>{{product.id}}</td>
+            <td>{{product.productCode}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.productPrice | currency:'$'}}</td>
+            <td>{{product.productQuantity | number}}</td>
+            <td>{{product.productCreateDate | date: 'dd/MM/yyyy'}}</td>
+            <td>{{product.category.categoryName}}</td>
+            <td>
+              <!-- Button trigger modal delete -->
+              <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#delete"
+                      (click)="getProduct(product.id)">Delete
+              </button>
+              <!-- Button trigger modal detail -->
+              <button type="button" class="btn btn-info me-2" data-bs-toggle="modal" data-bs-target="#detail"
+                      (click)="getProduct(product.id)">Detail
+              </button>
+
+              <a class="btn btn-warning" role="button" routerLink="/product/update/{{product.id}}">Update</a>
+            </td>
+            <td>
+              <!-- Button trigger modal decrease  -->
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#decrease"
+                      (click)="getProduct(product.id)">Sale
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 

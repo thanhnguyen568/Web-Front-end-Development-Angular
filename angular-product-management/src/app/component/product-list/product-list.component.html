@@ -45,11 +45,11 @@
         </td>
         <td>
           <!-- Button trigger modal detail -->
-          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detail"
+          <button type="button" class="btn btn-info me-2" data-bs-toggle="modal" data-bs-target="#detail"
                   (click)="getProduct(product.productCode)">Detail
           </button>
           <!-- Button trigger modal delete -->
-          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete"
+          <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#delete"
                   (click)="getProduct(product.productCode)">Delete
           </button>
           <a class="btn btn-warning" role="button" routerLink="/product/update/{{product.productCode}}">Update</a>
@@ -73,8 +73,7 @@
       </div>
       <div class="modal-footer">
         <form action="">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          |
+          <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="removeQuantity()">Confirm
           </button>
         </form>
@@ -95,8 +94,7 @@
         <p>Are you sure delete: {{product.productName}}?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        |
+        <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
                 (click)="removeProduct()">Confirm
         </button>
