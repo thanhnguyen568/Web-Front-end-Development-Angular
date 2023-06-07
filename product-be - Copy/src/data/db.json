@@ -33,9 +33,9 @@
       "productPrice": 2500,
       "productQuantity": 97,
       "category": {
-        "id": 2,
-        "categoryCode": "02",
-        "categoryName": "Mỳ"
+        "id": 1,
+        "categoryCode": "01",
+        "categoryName": "Bánh"
       },
       "id": 3
     },
@@ -80,7 +80,7 @@
     },
     {
       "productCode": "P-7",
-      "productName": "Laptop",
+      "productName": "ádadsa",
       "productCreateDate": "2023-06-07",
       "productPrice": "1",
       "productQuantity": "1",
@@ -93,16 +93,29 @@
     },
     {
       "productCode": "P-8",
-      "productName": "Pad",
+      "productName": "ádasda",
+      "productCreateDate": "2023-06-07",
+      "productPrice": "1",
+      "productQuantity": "1",
+      "category": {
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Mỳ"
+      },
+      "id": 8
+    },
+    {
+      "productCode": "P-9",
+      "productName": "áda",
       "productCreateDate": "2023-06-07",
       "productPrice": "1",
       "productQuantity": 0,
       "category": {
-        "id": 1,
-        "categoryCode": "01",
-        "categoryName": "Bánh"
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Mỳ"
       },
-      "id": 8
+      "id": 10
     }
   ],
   "categories": [

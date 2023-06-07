@@ -44,7 +44,7 @@
             <label>category<span>*</span></label>
             <select class="form-control" formControlName="category">
               <option [ngValue]="null" disabled>Choose your category</option>
-              <option *ngFor="let category of categories" [ngValue]="category.id">
+              <option *ngFor="let category of categories" [ngValue]="category">
                 {{ category.categoryName }}
               </option>
             </select>

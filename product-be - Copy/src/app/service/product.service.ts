@@ -33,29 +33,21 @@ export class ProductService {
   }
 
   search(rfSearch: any): Observable<Product[]> {
-    debugger;
-    let key = '?';
-    const productName = rfSearch.productName;
-    if (productName !== '' && productName !== null) {
-      key += 'productName_like=' + productName + '&';
+    if (!rfSearch.category) {
+      return this.httpClient.get<Product[]>(this.API_PROD +
+        '?productName_like=' + rfSearch.productName +
+        '&productPrice_like=' + rfSearch.productPrice +
+        '&productCreateDate_gte' + rfSearch.productCreateDate +
+        '&productCreateDate_lte=' + rfSearch.productCreateDate
+      );
     }
-    const productPrice = rfSearch.productPrice;
-    if (productPrice !== '' && productPrice !== null) {
-      key += 'productPrice_like=' + productPrice + '&';
-    }
-    const category = rfSearch.category;
-    if (category !== '' && category !== null) {
-      key += 'category.id_like=' + category + '&';
-    }
-    const fromDate = rfSearch.fromDate;
-    if (fromDate !== '' && fromDate !== null) {
-      key += 'productCreateDate_gte=' + fromDate + '&';
-    }
-    const toDate = rfSearch.toDate;
-    if (toDate !== '' && toDate !== null) {
-      key += 'productCreateDate_lte=' + toDate + '&';
-    }
-    return this.httpClient.get<Product[]>(this.API_PROD + key);
+    return this.httpClient.get<Product[]>(this.API_PROD +
+      '?productName_like=' + rfSearch.productName +
+      '&productPrice_like=' + rfSearch.productPrice +
+      '&category.id=' + rfSearch.category +
+      '&productCreateDate_gte' + rfSearch.productCreateDate +
+      '&productCreateDate_lte=' + rfSearch.productCreateDate
+    );
   }
 
 }

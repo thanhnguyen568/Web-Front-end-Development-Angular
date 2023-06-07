@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {CategoryService} from '../../service/category.service';
+import {Product} from '../../model/product';
 
 @Component({
   selector: 'app-product-update',
@@ -45,33 +46,16 @@ export class ProductUpdateComponent implements OnInit {
     });
   }
 
+  getCategory(id: number) {
+    this.categoryService.findById(id).subscribe(data => {
+      this.category = data;
+    });
+  }
+
   updateProduct(id: number) {
-    debugger;
     const product = this.productForm.value;
-
-    function delay(ms: number) {
-      return new Promise((resolve, reject) => {
-        setTimeout(resolve, ms);
-        setTimeout(reject, ms);
-      });
-    }
-
-    delay(0).then(() => {
-      this.categoryService.findById(product.category).subscribe(data => {
-        product.category = data;
-      });
-      return delay(1000);
-    })
-      .then(() => {
-        this.productService.update(id, product).subscribe(() => {
-          this.router.navigateByUrl('/product/list');
-        });
-        // return delay(2000);
-      });
-    //  setTimeout(reject, ms);
-    // .catch(() => {
-    //   console.log('error');
-    // });
-
+    this.productService.update(id, product).subscribe(() => {
+      this.router.navigateByUrl('/product/list');
+    });
   }
 }

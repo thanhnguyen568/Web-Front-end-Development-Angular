@@ -28,8 +28,7 @@ export class ProductComponent implements OnInit {
       productName: new FormControl(),
       productPrice: new FormControl(),
       category: new FormControl(),
-      fromDate: new FormControl(),
-      toDate: new FormControl(),
+      // productCreateDate: new FormControl(),
     });
   }
 
