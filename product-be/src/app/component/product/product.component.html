@@ -4,19 +4,19 @@
       <form action="" *ngIf="searchForm" [formGroup]="searchForm" (ngSubmit)="onSearch()">
         <tr>
           <td class="col-4">
-            <div class="form-group mb-2 col-4 d-inline">
+            <div class="form-group mb-2 d-inline">
               <label for="1">Name: </label>
               <input type="text" id="1" class="form-control" formControlName="productName">
             </div>
           </td>
           <td class="col-4">
-            <div class="form-group mb-2 col-4 d-inline">
+            <div class="form-group mb-2 d-inline">
               <label for="2">Price: </label>
               <input type="text" id="2" class="form-control" formControlName="productPrice">
             </div>
           </td>
           <td class="col-4">
-            <div class="form-group mb-2 col-4 d-inline">
+            <div class="form-group mb-2 d-inline">
               <label for="2">Category: </label>
               <select class="form-control" formControlName="category">
                 <option [ngValue]="null" disabled>Choose your category</option>
@@ -27,21 +27,21 @@
             </div>
           </td>
           <td class="col-4">
-            <div class="form-group mb-2 col-4 d-inline">
+            <div class="form-group mb-2 d-inline">
               <label for="5">From Date: </label>
               <input type="date" id="5" class="form-control" formControlName="productCreateDate">
             </div>
           </td>
           <td class="col-4">
-            <div class="form-group mb-2 col-4 d-inline">
+            <div class="form-group mb-2 d-inline">
               <label for="6">To Date: </label>
               <input type="date" id="6" class="form-control" formControlName="productCreateDate">
             </div>
           </td>
         </tr>
         <tr>
-          <div class="form-group mb-2 col-4 d-inline">
-            <button type="submit" class="btn btn-outline-info">Search</button>
+          <div class="form-group mb-2 d-inline">
+            <button type="submit" class="btn bg-secondary">Search</button>
           </div>
         </tr>
       </form>
@@ -97,7 +97,10 @@
           </tr>
           </tbody>
         </table>
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <pagination-controls (pageChange)="p = $event"
+                             previousLabel="Previous"
+                             nextLabel="Next">
+        </pagination-controls>
       </div>
     </div>
   </div>
