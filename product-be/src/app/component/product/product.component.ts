@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Category} from '../../model/category';
 import {CategoryService} from '../../service/category.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-product',
@@ -18,7 +20,6 @@ export class ProductComponent implements OnInit {
   searchForm: FormGroup;
   categories: Category[];
   p = 1;
-  count = 3;
 
   constructor(private productService: ProductService,
               private categoryService: CategoryService,
@@ -62,7 +63,13 @@ export class ProductComponent implements OnInit {
 
   removeQuantity() {
     if (this.product.productQuantity <= 0) {
-      alert('sold out');
+      Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Sold out',
+        showConfirmButton: false,
+        timer: 1500
+      });
     } else {
       this.product.productQuantity = this.product.productQuantity - 1;
     }

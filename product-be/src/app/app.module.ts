@@ -9,6 +9,7 @@ import { CategoryComponent } from './component/category/category.component';
 import { ProductCreateComponent } from './component/product-create/product-create.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ProductUpdateComponent } from './component/product-update/product-update.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 // import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ProductUpdateComponent } from './component/product-update/product-updat
         AppRoutingModule,
         HttpClientModule,
         ReactiveFormsModule,
+        NgxPaginationModule,
         // NgxPaginationModule,
     ],
   providers: [],
