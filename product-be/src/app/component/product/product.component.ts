@@ -3,6 +3,8 @@ import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
+import {Category} from '../../model/category';
+import {CategoryService} from '../../service/category.service';
 
 @Component({
   selector: 'app-product',
@@ -12,14 +14,32 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class ProductComponent implements OnInit {
   products: Product[];
   product: Product;
-  productForm: FormGroup;
+  // search
+  searchForm: FormGroup;
+  categories: Category[];
+  p = 1;
+  count = 3;
 
   constructor(private productService: ProductService,
+              private categoryService: CategoryService,
               private router: Router) {
+    this.searchForm = new FormGroup({
+      productName: new FormControl(),
+      productPrice: new FormControl(),
+      category: new FormControl(),
+      // productCreateDate: new FormControl(),
+    });
   }
 
   ngOnInit(): void {
     this.getAllProduct();
+    this.getAllCategory();
+  }
+
+  getAllCategory() {
+    this.categoryService.findAll().subscribe(data => {
+      this.categories = data;
+    });
   }
 
   getAllProduct() {
@@ -36,7 +56,6 @@ export class ProductComponent implements OnInit {
 
   removeProduct() {
     this.productService.deleteById(this.product.id).subscribe(() => {
-      this.router.navigateByUrl('/product/list');
       this.getAllProduct();
     });
   }
@@ -48,9 +67,15 @@ export class ProductComponent implements OnInit {
       this.product.productQuantity = this.product.productQuantity - 1;
     }
     this.productService.update(this.product.id, this.product).subscribe(() => {
-      this.router.navigateByUrl('/product/list');
       this.getAllProduct();
     });
   }
 
+  onSearch() {
+    const rfSearch = this.searchForm.value;
+    this.productService.search(rfSearch).subscribe(data => {
+        this.products = data;
+      }
+    );
+  }
 }

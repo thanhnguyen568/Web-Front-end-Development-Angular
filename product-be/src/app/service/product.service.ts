@@ -31,4 +31,23 @@ export class ProductService {
   deleteById(id: number): Observable<Product> {
     return this.httpClient.delete<Product>(`${this.API_PROD}/${id}`);
   }
+
+  search(rfSearch: any): Observable<Product[]> {
+    if (!rfSearch.category) {
+      return this.httpClient.get<Product[]>(this.API_PROD +
+        '?productName_like=' + rfSearch.productName +
+        '&productPrice_like=' + rfSearch.productPrice +
+        '&productCreateDate_gte' + rfSearch.productCreateDate +
+        '&productCreateDate_lte=' + rfSearch.productCreateDate
+      );
+    }
+    return this.httpClient.get<Product[]>(this.API_PROD +
+      '?productName_like=' + rfSearch.productName +
+      '&productPrice_like=' + rfSearch.productPrice +
+      '&category.id=' + rfSearch.category +
+      '&productCreateDate_gte' + rfSearch.productCreateDate +
+      '&productCreateDate_lte=' + rfSearch.productCreateDate
+    );
+  }
+
 }

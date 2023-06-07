@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "productCode": "P1",
+      "productCode": "P-1",
       "productName": "Memory Card",
       "productPrice": 500,
       "productCreateDate": "1993-03-02",
@@ -14,7 +14,7 @@
       "id": 1
     },
     {
-      "productCode": "P2",
+      "productCode": "P-2",
       "productName": "CPU",
       "productPrice": 1500,
       "productCreateDate": "1993-03-02",
@@ -27,11 +27,11 @@
       "id": 2
     },
     {
-      "productCode": "P3",
+      "productCode": "P-3",
       "productName": "Monitor",
       "productCreateDate": "1993-03-02",
       "productPrice": 2500,
-      "productQuantity": 99,
+      "productQuantity": 97,
       "category": {
         "id": 1,
         "categoryCode": "01",
@@ -40,11 +40,11 @@
       "id": 3
     },
     {
-      "productCode": "P4",
+      "productCode": "P-4",
       "productName": "Mouse",
       "productCreateDate": "2023-06-06",
       "productPrice": "20000",
-      "productQuantity": 119,
+      "productQuantity": 118,
       "category": {
         "id": 2,
         "categoryCode": "02",
@@ -53,7 +53,7 @@
       "id": 4
     },
     {
-      "productCode": "P5",
+      "productCode": "P-5",
       "productName": "Keyboard",
       "productCreateDate": "2023-06-30",
       "productPrice": "12300",
@@ -64,6 +64,19 @@
         "categoryName": "Bánh"
       },
       "id": 5
+    },
+    {
+      "productCode": "P-6",
+      "productName": "Keyboard",
+      "productCreateDate": "2023-06-16",
+      "productPrice": "5000",
+      "productQuantity": "50",
+      "category": {
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Mỳ"
+      },
+      "id": 6
     }
   ],
   "categories": [

@@ -28,7 +28,7 @@ export class ProductCreateComponent implements OnInit {
     this.productForm = new FormGroup({
       productCode: new FormControl('', [
         Validators.required,
-        Validators.pattern('^P[0-9]*$')
+        Validators.pattern('^P-[0-9]*$')
       ]),
       productName: new FormControl('', [
         Validators.required,
@@ -39,6 +39,10 @@ export class ProductCreateComponent implements OnInit {
       productQuantity: new FormControl('', []),
       category: new FormControl('', []),
     });
+    this.getAllCategory();
+  }
+
+  getAllCategory() {
     this.categoryService.findAll().subscribe(data => {
       this.categories = data;
     });
@@ -53,8 +57,8 @@ export class ProductCreateComponent implements OnInit {
   createProduct() {
     const product = this.productForm.value;
     this.productService.save(product).subscribe(data => {
-      this.router.navigateByUrl('/product/list');
-      this.getAllProduct();
     });
+    this.router.navigateByUrl('/product/list');
+    this.getAllProduct();
   }
 }

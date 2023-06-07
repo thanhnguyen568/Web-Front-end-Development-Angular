@@ -20,7 +20,7 @@
             <span class="text-danger" *ngIf="productForm.controls.productCode?.touched
                && productForm.controls.productCode?.errors?.required">productCode không được để trống</span>
             <span class="text-danger" *ngIf="productForm.controls.productCode?.errors?.pattern">productCode không đúng
-              định dạng P*</span>
+              định dạng P-*</span>
             <input type="text" class="form-control" formControlName="productCode">
           </div>
 

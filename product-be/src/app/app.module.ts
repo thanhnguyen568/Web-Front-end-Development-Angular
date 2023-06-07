@@ -9,6 +9,7 @@ import { CategoryComponent } from './component/category/category.component';
 import { ProductCreateComponent } from './component/product-create/product-create.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ProductUpdateComponent } from './component/product-update/product-update.component';
+// import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,13 @@ import { ProductUpdateComponent } from './component/product-update/product-updat
     ProductCreateComponent,
     ProductUpdateComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        // NgxPaginationModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
