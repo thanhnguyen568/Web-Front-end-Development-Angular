@@ -10,7 +10,6 @@ import { ProductCreateComponent } from './component/product-create/product-creat
 import {ReactiveFormsModule} from '@angular/forms';
 import { ProductUpdateComponent } from './component/product-update/product-update.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-// import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
         HttpClientModule,
         ReactiveFormsModule,
         NgxPaginationModule,
-        // NgxPaginationModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

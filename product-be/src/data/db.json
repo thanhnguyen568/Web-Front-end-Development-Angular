@@ -4,7 +4,7 @@
       "productCode": "P-1",
       "productName": "Memory Card",
       "productPrice": 500,
-      "productCreateDate": "1993-03-02",
+      "productCreateDate": "2023-06-01",
       "productQuantity": 89,
       "category": {
         "id": 2,
@@ -17,7 +17,7 @@
       "productCode": "P-2",
       "productName": "CPU",
       "productPrice": 1500,
-      "productCreateDate": "1993-03-02",
+      "productCreateDate": "2023-06-02",
       "productQuantity": 85,
       "category": {
         "id": 2,
@@ -29,7 +29,7 @@
     {
       "productCode": "P-3",
       "productName": "Monitor",
-      "productCreateDate": "1993-03-02",
+      "productCreateDate": "2023-06-03",
       "productPrice": 2500,
       "productQuantity": 97,
       "category": {
@@ -42,7 +42,7 @@
     {
       "productCode": "P-4",
       "productName": "Mouse",
-      "productCreateDate": "2023-06-06",
+      "productCreateDate": "2023-06-04",
       "productPrice": "20000",
       "productQuantity": 118,
       "category": {
@@ -55,7 +55,7 @@
     {
       "productCode": "P-5",
       "productName": "Keyboard",
-      "productCreateDate": "2023-06-30",
+      "productCreateDate": "2023-06-05",
       "productPrice": "12300",
       "productQuantity": "24",
       "category": {
@@ -68,7 +68,7 @@
     {
       "productCode": "P-6",
       "productName": "Keyboard",
-      "productCreateDate": "2023-06-16",
+      "productCreateDate": "2023-06-06",
       "productPrice": "5000",
       "productQuantity": "50",
       "category": {
@@ -94,7 +94,7 @@
     {
       "productCode": "P-8",
       "productName": "Pad",
-      "productCreateDate": "2023-06-07",
+      "productCreateDate": "2023-06-08",
       "productPrice": "1",
       "productQuantity": 0,
       "category": {

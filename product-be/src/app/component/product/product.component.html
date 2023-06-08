@@ -6,13 +6,13 @@
           <td class="col-4">
             <div class="form-group mb-2 d-inline">
               <label for="1">Name: </label>
-              <input type="text" id="1" class="form-control" formControlName="productName">
+              <input type="search" id="1" class="form-control" formControlName="productName">
             </div>
           </td>
           <td class="col-4">
             <div class="form-group mb-2 d-inline">
               <label for="2">Price: </label>
-              <input type="text" id="2" class="form-control" formControlName="productPrice">
+              <input type="search" id="2" class="form-control" formControlName="productPrice">
             </div>
           </td>
           <td class="col-4">
@@ -41,7 +41,7 @@
         </tr>
         <tr>
           <div class="form-group mb-2 d-inline">
-            <button type="submit" class="btn btn-dark">Search</button>
+            <button type="submit" class="btn btn-outline-dark">Search</button>
           </div>
         </tr>
       </form>
@@ -78,29 +78,26 @@
             <td>{{product.category.categoryName}}</td>
             <td>
               <!-- Button trigger modal delete -->
-              <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#delete"
+              <button type="button" class="btn btn-outline-danger me-2" data-bs-toggle="modal" data-bs-target="#delete"
                       (click)="getProduct(product.id)">Delete
               </button>
               <!-- Button trigger modal detail -->
-              <button type="button" class="btn btn-info me-2" data-bs-toggle="modal" data-bs-target="#detail"
+              <button type="button" class="btn btn-outline-info me-2" data-bs-toggle="modal" data-bs-target="#detail"
                       (click)="getProduct(product.id)">Detail
               </button>
 
-              <a class="btn btn-warning" role="button" routerLink="/product/update/{{product.id}}">Update</a>
+              <a class="btn btn-outline-warning" role="button" routerLink="/product/update/{{product.id}}">Update</a>
             </td>
             <td>
               <!-- Button trigger modal decrease  -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#decrease"
+              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#decrease"
                       (click)="getProduct(product.id)">Sale
               </button>
             </td>
           </tr>
           </tbody>
         </table>
-        <pagination-controls (pageChange)="p = $event"
-                             previousLabel="Previous"
-                             nextLabel="Next">
-        </pagination-controls>
+        <pagination-controls (pageChange)="p = $event" previousLabel="Previous" nextLabel="Next"></pagination-controls>
       </div>
     </div>
   </div>
