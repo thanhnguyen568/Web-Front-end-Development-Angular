@@ -3,13 +3,13 @@
     {
       "productCode": "P-1",
       "productName": "Memory Card",
-      "productPrice": 500,
       "productCreateDate": "2023-06-01",
+      "productPrice": 500,
       "productQuantity": 89,
       "category": {
-        "id": 2,
-        "categoryCode": "02",
-        "categoryName": "Mỳ"
+        "id": 1,
+        "categoryCode": "01",
+        "categoryName": "Bánh"
       },
       "id": 1
     },
