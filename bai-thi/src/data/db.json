@@ -1,0 +1,120 @@
+{
+  "products": [
+    {
+      "productCode": "P-1",
+      "productName": "Memory Card",
+      "productPrice": 500,
+      "productCreateDate": "2023-06-01",
+      "productQuantity": 89,
+      "category": {
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Mỳ"
+      },
+      "id": 1
+    },
+    {
+      "productCode": "P-2",
+      "productName": "CPU",
+      "productPrice": 1500,
+      "productCreateDate": "2023-06-02",
+      "productQuantity": 85,
+      "category": {
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Mỳ"
+      },
+      "id": 2
+    },
+    {
+      "productCode": "P-3",
+      "productName": "Monitor",
+      "productCreateDate": "2023-06-03",
+      "productPrice": 2500,
+      "productQuantity": 97,
+      "category": {
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Mỳ"
+      },
+      "id": 3
+    },
+    {
+      "productCode": "P-4",
+      "productName": "Mouse",
+      "productCreateDate": "2023-06-04",
+      "productPrice": "20000",
+      "productQuantity": 118,
+      "category": {
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Mỳ"
+      },
+      "id": 4
+    },
+    {
+      "productCode": "P-5",
+      "productName": "Keyboard",
+      "productCreateDate": "2023-06-05",
+      "productPrice": "12300",
+      "productQuantity": "24",
+      "category": {
+        "id": 1,
+        "categoryCode": "01",
+        "categoryName": "Bánh"
+      },
+      "id": 5
+    },
+    {
+      "productCode": "P-6",
+      "productName": "Keyboard",
+      "productCreateDate": "2023-06-06",
+      "productPrice": "5000",
+      "productQuantity": "50",
+      "category": {
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Mỳ"
+      },
+      "id": 6
+    },
+    {
+      "productCode": "P-7",
+      "productName": "Laptop",
+      "productCreateDate": "2023-06-07",
+      "productPrice": "1",
+      "productQuantity": "1",
+      "category": {
+        "id": 1,
+        "categoryCode": "01",
+        "categoryName": "Bánh"
+      },
+      "id": 7
+    },
+    {
+      "productCode": "P-8",
+      "productName": "Pad",
+      "productCreateDate": "2023-06-08",
+      "productPrice": "1",
+      "productQuantity": 0,
+      "category": {
+        "id": 1,
+        "categoryCode": "01",
+        "categoryName": "Bánh"
+      },
+      "id": 8
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "categoryCode": "01",
+      "categoryName": "Bánh"
+    },
+    {
+      "id": 2,
+      "categoryCode": "02",
+      "categoryName": "Mỳ"
+    }
+  ]
+}

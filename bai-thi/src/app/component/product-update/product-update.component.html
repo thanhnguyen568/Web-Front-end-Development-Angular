@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="card" style="width: 20rem;">
+    <div class="card-body">
+      <form action="" [formGroup]="productForm" (ngSubmit)="updateProduct(id)">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modelTitleId">Update</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label>productCode<span>*</span></label>
+            <span class="text-danger" *ngIf="productForm.controls.productCode?.touched
+               && productForm.controls.productCode?.errors?.required">productCode không được để trống</span>
+            <span class="text-danger" *ngIf="productForm.controls.productCode?.errors?.pattern">productCode không đúng
+              định dạng P*</span>
+            <input type="text" class="form-control" formControlName="productCode">
+          </div>
+
+          <div class="form-group">
+            <label>productName<span>*</span></label>
+            <span class="text-danger" *ngIf="productForm.controls.productName?.touched
+               && productForm.controls.productName?.errors?.required">productName không được để trống</span>
+            <span class="text-danger" *ngIf="productForm.controls.productName?.errors?.pattern">productName không nhập ký
+              tự đặt biệt và số</span>
+            <input type="text" class="form-control" formControlName="productName">
+          </div>
+
+          <div class="form-group">
+            <label>productCreateDate<span>*</span></label>
+            <input type="date" class="form-control" formControlName="productCreateDate">
+          </div>
+
+          <div class="form-group">
+            <label>productPrice<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productPrice">
+          </div>
+
+          <div class="form-group">
+            <label>productQuantity<span>*</span></label>
+            <input type="text" class="form-control" formControlName="productQuantity">
+          </div>
+
+          <div class="form-group">
+            <label>category<span>*</span></label>
+            <select class="form-control" formControlName="category">
+              <option [ngValue]="null" disabled>Choose your category</option>
+              <option *ngFor="let category of categories" [ngValue]="category.id">
+                {{ category.categoryName }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" routerLink="/product/list">Cancel</button>
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal" [disabled]="productForm.invalid">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
