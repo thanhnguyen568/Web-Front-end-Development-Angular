@@ -33,7 +33,6 @@ export class ProductService {
   }
 
   search(rfSearch: any): Observable<Product[]> {
-    debugger;
     let key = '?';
     const productName = rfSearch.productName;
     if (productName !== '' && productName !== null) {
@@ -57,5 +56,4 @@ export class ProductService {
     }
     return this.httpClient.get<Product[]>(this.API_PROD + key);
   }
-
 }
