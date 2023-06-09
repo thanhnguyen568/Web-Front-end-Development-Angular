@@ -32,6 +32,10 @@ export class ProductService {
     return this.httpClient.delete<Product>(`${this.API_PROD}/${id}`);
   }
 
+  findByCode(code: string): Observable<Product> {
+    return this.httpClient.get<Product>(`${this.API_PROD}/${code}`);
+  }
+
   search(rfSearch: any): Observable<Product[]> {
     let key = '?';
     const productName = rfSearch.productName;

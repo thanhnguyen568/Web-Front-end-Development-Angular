@@ -5,7 +5,7 @@
       "productName": "Memory Card",
       "productCreateDate": "2023-06-01",
       "productPrice": 500,
-      "productQuantity": 89,
+      "productQuantity": 88,
       "category": {
         "id": 1,
         "categoryCode": "01",
@@ -18,7 +18,7 @@
       "productName": "CPU",
       "productPrice": 1500,
       "productCreateDate": "2023-06-02",
-      "productQuantity": 85,
+      "productQuantity": 84,
       "category": {
         "id": 2,
         "categoryCode": "02",

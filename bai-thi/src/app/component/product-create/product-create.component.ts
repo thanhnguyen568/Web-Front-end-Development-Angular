@@ -3,7 +3,7 @@ import {ProductService} from '../../service/product.service';
 import {CategoryService} from '../../service/category.service';
 import {Router} from '@angular/router';
 import {Category} from '../../model/category';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormGroup, FormControl, Validators, ValidationErrors, AbstractControl} from '@angular/forms';
 import {Product} from '../../model/product';
 import Swal from 'sweetalert2';
 
@@ -30,7 +30,7 @@ export class ProductCreateComponent implements OnInit {
     this.productForm = new FormGroup({
       productCode: new FormControl('', [
         Validators.required,
-        Validators.pattern('^P-[0-9]*$')
+        Validators.pattern('^P-[0-9]*$'),
       ]),
       productName: new FormControl('', [
         Validators.required,
@@ -58,6 +58,7 @@ export class ProductCreateComponent implements OnInit {
 
   createProduct() {
     const product = this.productForm.value;
+    product.productCreateDate = new Date();
     this.productService.save(product).subscribe(data => {
     });
     Swal.fire({
@@ -69,5 +70,23 @@ export class ProductCreateComponent implements OnInit {
     });
     this.router.navigateByUrl('/product/list');
     this.getAllProduct();
+  }
+
+  /**
+   * Custom validation
+   */
+  checkDate(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (value !== null && value !== undefined) {
+      const currentDate = new Date();
+      const birthDate = new Date(value);
+      const yearsDiff = currentDate.getFullYear() - birthDate.getFullYear();
+      const monthsDiff = currentDate.getMonth() - birthDate.getMonth();
+      const daysDiff = currentDate.getDate() - birthDate.getDate();
+      if (yearsDiff > 18 || (yearsDiff === 18 && monthsDiff > 0) || (yearsDiff === 18 && monthsDiff === 0 && daysDiff >= 0)) {
+        return null;
+      }
+    }
+    return {invalidAge: true}; // user trên 18 tuổi
   }
 }

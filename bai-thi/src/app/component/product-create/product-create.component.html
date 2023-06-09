@@ -21,6 +21,8 @@
                && productForm.controls.productCode?.errors?.required">productCode không được để trống</span>
             <span class="text-danger" *ngIf="productForm.controls.productCode?.errors?.pattern">productCode không đúng
               định dạng P-*</span>
+            <span class="text-danger" *ngIf="productForm.controls?.productCode?.errors?.invalidCode">productCode không
+              được trùng</span>
             <input type="text" class="form-control" formControlName="productCode">
           </div>
 

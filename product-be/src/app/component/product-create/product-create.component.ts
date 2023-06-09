@@ -3,7 +3,7 @@ import {ProductService} from '../../service/product.service';
 import {CategoryService} from '../../service/category.service';
 import {Router} from '@angular/router';
 import {Category} from '../../model/category';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormGroup, FormControl, Validators, ValidationErrors} from '@angular/forms';
 import {Product} from '../../model/product';
 import Swal from 'sweetalert2';
 
