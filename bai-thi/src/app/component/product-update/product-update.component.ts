@@ -20,34 +20,34 @@ export class ProductUpdateComponent implements OnInit {
               private categoryService: CategoryService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
-    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      this.id = +paramMap.get('id');
-      this.getProduct(this.id);
-    });
   }
 
   ngOnInit(): void {
+    this.productForm = new FormGroup({
+      productCode: new FormControl(),
+      productName: new FormControl(),
+      productCreateDate: new FormControl(),
+      productPrice: new FormControl(),
+      productQuantity: new FormControl(),
+      category: new FormControl()
+    });
+    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      this.id = +paramMap.get('id');
+
+      this.productService.findById(this.id).subscribe(data => {
+        this.productForm.patchValue(data);
+        this.productForm.get('category').setValue(data.category.id);
+      });
+    });
+
     this.categoryService.findAll().subscribe(data => {
       this.categories = data;
     });
   }
 
-  getProduct(id: number) {
-    return this.productService.findById(id).subscribe(product => {
-      this.productForm = new FormGroup({
-        productCode: new FormControl(product.productCode),
-        productName: new FormControl(product.productName),
-        productCreateDate: new FormControl(product.productCreateDate),
-        productPrice: new FormControl(product.productPrice),
-        productQuantity: new FormControl(product.productQuantity),
-        category: new FormControl(product.category.id)
-      });
-    });
-  }
-
   updateProduct(id: number) {
-    debugger;
     const product = this.productForm.value;
+    // product.category = this.categories.find(category => category.id = +product.category);
 
     function delay(ms: number) {
       return new Promise((resolve, reject) => {
@@ -66,12 +66,11 @@ export class ProductUpdateComponent implements OnInit {
         this.productService.update(id, product).subscribe(() => {
           this.router.navigateByUrl('/product/list');
         });
-        // return delay(2000);
+        return delay(0);
       });
     //  setTimeout(reject, ms);
     // .catch(() => {
     //   console.log('error');
     // });
-
   }
 }

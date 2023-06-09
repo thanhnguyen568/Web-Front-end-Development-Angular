@@ -16,8 +16,8 @@
     {
       "productCode": "P-2",
       "productName": "CPU",
-      "productPrice": 1500,
       "productCreateDate": "2023-06-02",
+      "productPrice": 1500,
       "productQuantity": 84,
       "category": {
         "id": 2,
@@ -103,6 +103,19 @@
         "categoryName": "Bánh"
       },
       "id": 8
+    },
+    {
+      "productCode": "P-9",
+      "productName": "Monitor",
+      "productCreateDate": "2023-06-09T10:46:21.010Z",
+      "productPrice": "30000",
+      "productQuantity": "20",
+      "category": {
+        "id": 1,
+        "categoryCode": "01",
+        "categoryName": "Bánh"
+      },
+      "id": 9
     }
   ],
   "categories": [
