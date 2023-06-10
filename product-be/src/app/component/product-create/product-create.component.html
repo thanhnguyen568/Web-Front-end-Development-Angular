@@ -63,7 +63,8 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-success" data-bs-dismiss="modal" [disabled]="productForm.invalid">
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal"
+                  onclick="window.location.reload()" [disabled]="productForm.invalid">
             Save
           </button>
         </div>

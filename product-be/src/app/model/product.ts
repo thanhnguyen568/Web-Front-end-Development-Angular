@@ -7,5 +7,6 @@ export interface Product {
   productPrice?: number;
   productCreateDate?: string;
   productQuantity?: number;
+  isSelected?: boolean;
   category?: Category;
 }

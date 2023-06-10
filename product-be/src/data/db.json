@@ -3,21 +3,21 @@
     {
       "productCode": "P-1",
       "productName": "Memory Card",
-      "productPrice": 500,
       "productCreateDate": "2023-06-01",
+      "productPrice": 500,
       "productQuantity": 89,
       "category": {
-        "id": 2,
-        "categoryCode": "02",
-        "categoryName": "Mỳ"
+        "id": 1,
+        "categoryCode": "01",
+        "categoryName": "Bánh"
       },
       "id": 1
     },
     {
       "productCode": "P-2",
       "productName": "CPU",
-      "productPrice": 1500,
       "productCreateDate": "2023-06-02",
+      "productPrice": 1500,
       "productQuantity": 85,
       "category": {
         "id": 2,
@@ -33,9 +33,9 @@
       "productPrice": 2500,
       "productQuantity": 97,
       "category": {
-        "id": 2,
-        "categoryCode": "02",
-        "categoryName": "Mỳ"
+        "id": 1,
+        "categoryCode": "01",
+        "categoryName": "Bánh"
       },
       "id": 3
     },
@@ -45,6 +45,7 @@
       "productCreateDate": "2023-06-04",
       "productPrice": "20000",
       "productQuantity": 118,
+      "isSelected": false,
       "category": {
         "id": 2,
         "categoryCode": "02",
@@ -58,6 +59,7 @@
       "productCreateDate": "2023-06-05",
       "productPrice": "12300",
       "productQuantity": "24",
+      "isSelected": false,
       "category": {
         "id": 1,
         "categoryCode": "01",
@@ -72,37 +74,96 @@
       "productPrice": "5000",
       "productQuantity": "50",
       "category": {
-        "id": 2,
-        "categoryCode": "02",
-        "categoryName": "Mỳ"
+        "id": 1,
+        "categoryCode": "01",
+        "categoryName": "Bánh"
       },
       "id": 6
     },
     {
       "productCode": "P-7",
-      "productName": "Laptop",
-      "productCreateDate": "2023-06-07",
-      "productPrice": "1",
-      "productQuantity": "1",
+      "productName": "Keyboard",
+      "productCreateDate": "2023-06-06",
+      "productPrice": "5000",
+      "productQuantity": "50",
+      "isSelected": false,
       "category": {
-        "id": 1,
-        "categoryCode": "01",
-        "categoryName": "Bánh"
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Mỳ"
       },
       "id": 7
     },
     {
       "productCode": "P-8",
-      "productName": "Pad",
-      "productCreateDate": "2023-06-08",
-      "productPrice": "1",
-      "productQuantity": 0,
+      "productName": "CPU",
+      "productCreateDate": "2023-06-02",
+      "productPrice": 1500,
+      "productQuantity": 85,
       "category": {
         "id": 1,
         "categoryCode": "01",
         "categoryName": "Bánh"
       },
       "id": 8
+    },
+    {
+      "productCode": "P-1",
+      "productName": "ádasd",
+      "productCreateDate": "2023-06-10",
+      "productPrice": "1123",
+      "productQuantity": "123",
+      "category": {
+        "id": 2,
+        "categoryCode": "01",
+        "categoryName": "Bánh"
+      },
+      "id": 9
+    },
+    {
+      "productCode": "P-3",
+      "productName": "ád",
+      "productCreateDate": "",
+      "productPrice": "",
+      "productQuantity": "",
+      "category": "",
+      "id": 10
+    },
+    {
+      "productCode": "P-123",
+      "productName": "áda",
+      "productCreateDate": "",
+      "productPrice": "",
+      "productQuantity": "",
+      "category": "",
+      "id": 11
+    },
+    {
+      "productCode": "P-312",
+      "productName": "áda",
+      "productCreateDate": "",
+      "productPrice": "",
+      "productQuantity": "",
+      "category": "",
+      "id": 12
+    },
+    {
+      "productCode": "P-123",
+      "productName": "ádasda",
+      "productCreateDate": "",
+      "productPrice": "",
+      "productQuantity": "",
+      "category": "",
+      "id": 13
+    },
+    {
+      "productCode": "P-123",
+      "productName": "ád",
+      "productCreateDate": "",
+      "productPrice": "",
+      "productQuantity": "",
+      "category": "",
+      "id": 14
     }
   ],
   "categories": [

@@ -7,7 +7,7 @@ import { ProductComponent } from './component/product/product.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CategoryComponent } from './component/category/category.component';
 import { ProductCreateComponent } from './component/product-create/product-create.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProductUpdateComponent } from './component/product-update/product-update.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 
@@ -25,6 +25,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
         HttpClientModule,
         ReactiveFormsModule,
         NgxPaginationModule,
+        FormsModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

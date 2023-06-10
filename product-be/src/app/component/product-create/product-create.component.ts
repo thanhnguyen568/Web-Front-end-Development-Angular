@@ -3,8 +3,7 @@ import {ProductService} from '../../service/product.service';
 import {CategoryService} from '../../service/category.service';
 import {Router} from '@angular/router';
 import {Category} from '../../model/category';
-import {FormGroup, FormControl, Validators, ValidationErrors} from '@angular/forms';
-import {Product} from '../../model/product';
+import {FormGroup, FormControl, Validators, ValidationErrors, AbstractControl} from '@angular/forms';
 import Swal from 'sweetalert2';
 
 
@@ -15,7 +14,6 @@ import Swal from 'sweetalert2';
 })
 export class ProductCreateComponent implements OnInit {
   productForm: FormGroup;
-  products: Product[];
   categories: Category[];
 
   constructor(private productService: ProductService,
@@ -30,7 +28,7 @@ export class ProductCreateComponent implements OnInit {
     this.productForm = new FormGroup({
       productCode: new FormControl('', [
         Validators.required,
-        Validators.pattern('^P-[0-9]*$')
+        Validators.pattern('^P-[0-9]*$'),
       ]),
       productName: new FormControl('', [
         Validators.required,
@@ -41,18 +39,9 @@ export class ProductCreateComponent implements OnInit {
       productQuantity: new FormControl('', []),
       category: new FormControl('', []),
     });
-    this.getAllCategory();
-  }
 
-  getAllCategory() {
     this.categoryService.findAll().subscribe(data => {
       this.categories = data;
-    });
-  }
-
-  getAllProduct() {
-    this.productService.findAll().subscribe(data => {
-      this.products = data;
     });
   }
 
@@ -65,9 +54,27 @@ export class ProductCreateComponent implements OnInit {
       icon: 'success',
       title: 'Save a record successful',
       showConfirmButton: false,
-      timer: 1500
+      timer: 1000
     });
-    this.router.navigateByUrl('/product/list');
-    this.getAllProduct();
+    this.productForm.reset();
   }
+
+  /**
+   * Custom validation
+   */
+  checkDate(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (value !== null && value !== undefined) {
+      const currentDate = new Date();
+      const birthDate = new Date(value);
+      const yearsDiff = currentDate.getFullYear() - birthDate.getFullYear();
+      const monthsDiff = currentDate.getMonth() - birthDate.getMonth();
+      const daysDiff = currentDate.getDate() - birthDate.getDate();
+      if (yearsDiff > 18 || (yearsDiff === 18 && monthsDiff > 0) || (yearsDiff === 18 && monthsDiff === 0 && daysDiff >= 0)) {
+        return null;
+      }
+    }
+    return {invalidAge: true}; // user trên 18 tuổi
+  }
+
 }

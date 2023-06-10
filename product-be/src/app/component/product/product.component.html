@@ -49,6 +49,10 @@
   </div>
 
   <app-product-create></app-product-create>
+  <!-- Button trigger modal detail -->
+  <button type="button" class="btn btn-outline-danger me-2" data-bs-toggle="modal" data-bs-target="#all">
+    Delete all
+  </button>
 
   <div class='table-responsive'>
     <div class="card mt-2">
@@ -56,6 +60,7 @@
         <table class='table table-hover' *ngIf="products">
           <thead>
           <tr class="bg-light">
+            <th><input type="checkbox" [(ngModel)]="masterSelected" (change)="unCheckAll()"/></th>
             <th>No.</th>
             <th>Code</th>
             <th>Name</th>
@@ -69,6 +74,9 @@
           </thead>
           <tbody>
           <tr *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: p};">
+            <td><input type="checkbox" name="checkbox" [(ngModel)]="product.isSelected"
+                       (change)="isCheckedAll()"
+                       [value]="product.id"></td>
             <td>{{product.id}}</td>
             <td>{{product.productCode}}</td>
             <td>{{product.productName}}</td>
@@ -169,6 +177,33 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal delete all -->
+<div class="modal fade" id="all" tabindex="-1" role="dialog" aria-labelledby="modelTitleIdAll"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modelTitleIdAll"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="card bg-light" style="width: 100%;">
+          <div class="card-body">
+            <h4 class="card-title"></h4>
+            <div class="form-group">
+              Are you sure delete selected ?
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary me-1" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteAll($event)">Confirm
+        </button>
       </div>
     </div>
   </div>

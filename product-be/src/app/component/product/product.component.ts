@@ -20,10 +20,15 @@ export class ProductComponent implements OnInit {
   searchForm: FormGroup;
   categories: Category[];
   p = 1;
+  // checkbox
+  masterSelected: boolean;
 
   constructor(private productService: ProductService,
               private categoryService: CategoryService,
               private router: Router) {
+  }
+
+  ngOnInit(): void {
     this.searchForm = new FormGroup({
       productName: new FormControl(),
       productPrice: new FormControl(),
@@ -31,9 +36,6 @@ export class ProductComponent implements OnInit {
       fromDate: new FormControl(),
       toDate: new FormControl(),
     });
-  }
-
-  ngOnInit(): void {
     this.getAllProduct();
     this.getAllCategory();
   }
@@ -85,6 +87,28 @@ export class ProductComponent implements OnInit {
         this.products = data;
       }
     );
+  }
+
+  unCheckAll() {
+    this.products.forEach(product => {
+      product.isSelected = this.masterSelected;
+    });
+  }
+
+  isCheckedAll() {
+    this.masterSelected = this.products.every(product => {
+      return product.isSelected === true;
+    });
+  }
+
+  deleteAll($event: MouseEvent) {
+    this.products.forEach(data => {
+      if (data.isSelected) {
+        this.productService.deleteById(data.id).subscribe(() => {
+          this.getAllProduct();
+        });
+      }
+    });
   }
 
 }
