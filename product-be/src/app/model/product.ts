@@ -7,6 +7,7 @@ export interface Product {
   productPrice?: number;
   productCreateDate?: string;
   productQuantity?: number;
+  vat?: number;
   isSelected?: boolean;
   category?: Category;
 }

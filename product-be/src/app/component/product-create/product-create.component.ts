@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 export class ProductCreateComponent implements OnInit {
   productForm: FormGroup;
   categories: Category[];
+  amount: number;
 
   constructor(private productService: ProductService,
               private categoryService: CategoryService,
@@ -37,12 +38,19 @@ export class ProductCreateComponent implements OnInit {
       productCreateDate: new FormControl('', []),
       productPrice: new FormControl('', []),
       productQuantity: new FormControl('', []),
+      vat: new FormControl('', []),
+      amount: new FormControl('', []),
       category: new FormControl('', []),
     });
 
     this.categoryService.findAll().subscribe(data => {
       this.categories = data;
     });
+  }
+
+  onChangeInput() {
+    const product = this.productForm.value;
+    this.amount = product.productPrice * product.productQuantity * (product.vat / 100);
   }
 
   createProduct() {
@@ -54,7 +62,7 @@ export class ProductCreateComponent implements OnInit {
       icon: 'success',
       title: 'Save a record successful',
       showConfirmButton: false,
-      timer: 1000
+      timer: 1500
     });
     this.productForm.reset();
   }

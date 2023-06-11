@@ -108,62 +108,19 @@
       "id": 8
     },
     {
-      "productCode": "P-1",
-      "productName": "ádasd",
-      "productCreateDate": "2023-06-10",
-      "productPrice": "1123",
-      "productQuantity": "123",
+      "productCode": "P-9",
+      "productName": "CPU",
+      "productCreateDate": "2023-06-11",
+      "productPrice": "20000",
+      "productQuantity": "15",
+      "vat": 5,
+      "amount": 15000,
       "category": {
-        "id": 2,
+        "id": 1,
         "categoryCode": "01",
         "categoryName": "Bánh"
       },
       "id": 9
-    },
-    {
-      "productCode": "P-3",
-      "productName": "ád",
-      "productCreateDate": "",
-      "productPrice": "",
-      "productQuantity": "",
-      "category": "",
-      "id": 10
-    },
-    {
-      "productCode": "P-123",
-      "productName": "áda",
-      "productCreateDate": "",
-      "productPrice": "",
-      "productQuantity": "",
-      "category": "",
-      "id": 11
-    },
-    {
-      "productCode": "P-312",
-      "productName": "áda",
-      "productCreateDate": "",
-      "productPrice": "",
-      "productQuantity": "",
-      "category": "",
-      "id": 12
-    },
-    {
-      "productCode": "P-123",
-      "productName": "ádasda",
-      "productCreateDate": "",
-      "productPrice": "",
-      "productQuantity": "",
-      "category": "",
-      "id": 13
-    },
-    {
-      "productCode": "P-123",
-      "productName": "ád",
-      "productCreateDate": "",
-      "productPrice": "",
-      "productQuantity": "",
-      "category": "",
-      "id": 14
     }
   ],
   "categories": [
