@@ -1,4 +1,5 @@
 <div class="container">
+  <!-- Form search-->
   <div class="card mb-2">
     <div class="card-body">
       <form action="" *ngIf="searchForm" [formGroup]="searchForm" (ngSubmit)="onSearch()">
@@ -48,9 +49,11 @@
     </div>
   </div>
 
-  <app-product-create></app-product-create>
-  <!-- Button trigger modal detail -->
-  <button type="button" class="btn btn-outline-danger me-2" data-bs-toggle="modal" data-bs-target="#all">
+  <!-- Create new-->
+  <a class="btn btn-outline-success me-2" role="button" routerLink="/product/create">Create new</a>
+
+  <!-- Button trigger modal delete all -->
+  <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#all">
     Delete all
   </button>
 
@@ -89,6 +92,7 @@
               <button type="button" class="btn btn-outline-danger me-2" data-bs-toggle="modal" data-bs-target="#delete"
                       (click)="getProduct(product.id)">Delete
               </button>
+
               <!-- Button trigger modal detail -->
               <button type="button" class="btn btn-outline-info me-2" data-bs-toggle="modal" data-bs-target="#detail"
                       (click)="getProduct(product.id)">Detail

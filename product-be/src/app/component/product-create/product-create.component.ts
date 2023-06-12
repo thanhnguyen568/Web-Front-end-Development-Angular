@@ -6,7 +6,6 @@ import {Category} from '../../model/category';
 import {FormGroup, FormControl, Validators, ValidationErrors, AbstractControl} from '@angular/forms';
 import Swal from 'sweetalert2';
 
-
 @Component({
   selector: 'app-product-create',
   templateUrl: './product-create.component.html',
@@ -56,6 +55,8 @@ export class ProductCreateComponent implements OnInit {
   createProduct() {
     const product = this.productForm.value;
     this.productService.save(product).subscribe(data => {
+      this.productForm.reset();
+      this.router.navigateByUrl('product/list');
     });
     Swal.fire({
       position: 'center',
@@ -64,7 +65,6 @@ export class ProductCreateComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     });
-    this.productForm.reset();
   }
 
   /**
