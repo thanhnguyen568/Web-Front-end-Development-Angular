@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <button (click)="addRow()">Add Row</button>
+
+  <div class="excel-input">
+    <table >
+      <thead border="1">
+      <tr>
+        <th *ngFor="let column of columns">{{ column }}</th>
+      </tr>
+      </thead>
+      <tbody border="1">
+      <tr *ngFor="let row of rows; let rowIndex = index">
+        <td *ngFor="let column of columns; let colIndex = index">
+          <input type="text" [(ngModel)]="rows[rowIndex][colIndex]" />
+        </td>
+        <td>
+          <button (click)="delRow(rowIndex)">delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
