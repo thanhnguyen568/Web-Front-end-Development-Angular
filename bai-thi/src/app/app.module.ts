@@ -6,10 +6,14 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ProjectComponent } from './component/project/project.component';
+import { ProjectUpdateComponent } from './component/project-update/project-update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProjectComponent,
+    ProjectUpdateComponent,
   ],
   imports: [
     BrowserModule,

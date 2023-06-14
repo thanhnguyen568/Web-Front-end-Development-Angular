@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="card" style="width: 50rem; margin: auto">
+    <div class="card-body">
+      <form action="" [formGroup]="projectForm" (ngSubmit)="updateProject(id)">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modelTitleId">Update</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Mã bệnh án<span>*</span></label>
+            <input type="text" class="form-control" formControlName="projectCode" disabled>
+          </div>
+
+          <div class="form-group">
+            <label>Mã bệnh nhân<span>*</span></label>
+            <input type="text" class="form-control" formControlName="person" disabled>
+          </div>
+
+          <div class="form-group">
+            <label>Tên bệnh nhân<span>*</span></label>
+            <span class="text-danger" *ngIf="projectForm.controls.personName?.touched
+               && projectForm.controls.personName?.errors?.required">Tên bệnh nhân không trống</span>
+            <span class="text-danger" *ngIf="projectForm.controls.personName?.errors?.pattern">Tên bệnh nhân không được
+              chứa số</span>
+            <input type="text" class="form-control" formControlName="personName" value="{{personName}}">
+          </div>
+
+          <div class="form-group">
+            <label>Ngày nhập viện<span>*</span></label>
+            <span class="text-danger" *ngIf="projectForm.controls.projectDateIn?.touched
+               && projectForm.controls.projectDateIn?.errors?.required">Ngày nhập viện không trống</span>
+            <input type="date" class="form-control" formControlName="projectDateIn">
+          </div>
+
+          <div class="form-group">
+            <label>Ngày xuất viện<span>*</span></label>
+            <span class="text-danger" *ngIf="projectForm.controls.projectDateOut?.touched
+               && projectForm.controls.projectDateOut?.errors?.required">Ngày xuất viện không trống</span>
+            <input type="date" class="form-control" formControlName="projectDateOut">
+          </div>
+
+          <div class="form-group">
+            <label>Lý do nhập viện<span>*</span></label>
+            <span class="text-danger" *ngIf="projectForm.controls.projectReason?.touched
+               && projectForm.controls.projectReason?.errors?.required">Lý do không trống</span>
+            <input type="text" class="form-control" formControlName="projectReason">
+          </div>
+
+          <div class="form-group">
+            <label>Phương pháp điều trị<span>*</span></label>
+            <span class="text-danger" *ngIf="projectForm.controls.projectMethod?.touched
+               && projectForm.controls.projectMethod?.errors?.required">Phương pháp không trống</span>
+            <input type="text" class="form-control" formControlName="projectMethod">
+          </div>
+
+          <div class="form-group">
+            <label>Bác sĩ điều trị<span>*</span></label>
+            <span class="text-danger" *ngIf="projectForm.controls.projectBS?.touched
+               && projectForm.controls.projectBS?.errors?.required">Bác s không trống</span>
+            <input type="text" class="form-control" formControlName="projectBS">
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal" routerLink="/project/list">Trở về
+          danh sách
+        </button>
+        <button type="submit" class="btn btn-success" data-bs-dismiss="modal" [disabled]="projectForm.invalid">
+          Sửa
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,24 +1,41 @@
 {
-  "products": [
+  "projects": [
     {
-      "productCode": "P-1",
-      "productName": "Memory Card",
-      "productCreateDate": "2023-06-01",
-      "productPrice": 500,
-      "productQuantity": 88,
-      "category": {
-        "id": 1,
-        "categoryCode": "01",
-        "categoryName": "Bánh"
+      "projectCode": "BA-112",
+      "projectDateIn": "2019-08-10",
+      "projectDateOut": "2020-08-10",
+      "projectReason": "Suy thận mạn",
+      "projectMethod": "Chạy thận",
+      "projectBS": "Lê Đôn A",
+      "person": {
+        "personCode": "BN-123",
+        "personName": "Nguyễn Văn Aa"
       },
+      "personName": "Nguyễn Văn Aa",
       "id": 1
+    },
+    {
+      "projectCode": "BA-444",
+      "projectDateIn": "2019-08-10",
+      "projectDateOut": "2020-08-10",
+      "projectReason": "Suy thận mạn",
+      "projectMethod": "Chạy thận",
+      "projectBS": "Lê Đôn A",
+      "person": {
+        "personCode": "BN-153",
+        "personName": "Nguyễn Văn B"
+      },
+      "id": 2
     }
   ],
-  "categories": [
+  "persons": [
     {
-      "id": 1,
-      "categoryCode": "01",
-      "categoryName": "Bánh"
+      "personCode": "BN-153",
+      "personName": "Nguyễn Văn B"
+    },
+    {
+      "personCode": "BN-123",
+      "personName": "Nguyễn Văn A"
     }
   ]
 }
