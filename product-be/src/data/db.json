@@ -44,8 +44,7 @@
       "productName": "Mouse",
       "productCreateDate": "2023-06-04",
       "productPrice": "20000",
-      "productQuantity": 118,
-      "isSelected": false,
+      "productQuantity": 51,
       "category": {
         "id": 2,
         "categoryCode": "02",
@@ -113,12 +112,10 @@
       "productCreateDate": "2023-06-11",
       "productPrice": "20000",
       "productQuantity": "15",
-      "vat": 5,
-      "amount": 15000,
       "category": {
-        "id": 1,
-        "categoryCode": "01",
-        "categoryName": "Bánh"
+        "id": 2,
+        "categoryCode": "02",
+        "categoryName": "Mỳ"
       },
       "id": 9
     }
