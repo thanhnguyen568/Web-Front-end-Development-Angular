@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container-fluid">
   <div class="topnav mb-2" id="myTopnav">
     <a href="#home" class="active">Home</a>
     <a routerLink="/product/list" (click)="reload('/product/list')">Danh sách product</a>
     <a routerLink="/category/list" (click)="reload('/category/list')">Danh sách category</a>
+    <a routerLink="/login" (click)="reload('/login')">Đăng nhập</a>
   </div>
 </div>
 <router-outlet></router-outlet>
-
