@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    debugger
     this.authService.login(this.formGroup.value).subscribe(
       data => {
         this.authService.isLoggedIn = true;
